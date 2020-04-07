@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/task/tasks",
+    "pages/home/home",
+    "pages/Publish/publish/publish",
+    "pages/info/info",
+    "pages/Publish/answer/answer",
+    "pages/Publish/market/market",
+    "pages/Publish/food/food",
+    "pages/users/home/home",
+    "pages/users/histroy/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "草稿",
+    "//": "界面顶端的电量，WIFI等符号的颜色",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

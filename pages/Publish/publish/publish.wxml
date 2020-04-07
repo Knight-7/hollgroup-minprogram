@@ -1,0 +1,21 @@
+<!--pages/Publish/publish.wxml-->
+<!--上导航标题栏-->
+
+<scroll-view>
+<cu-custom bgColor="bg-gradual-purple" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发布我想要</view>
+</cu-custom>
+  <!--卡片类型-->
+  <view class="cu-card">
+    <view class="cu-item bg-img shadow-blur" style="background-image:url({{item.img}})" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
+      <view class="padding ">
+         
+          <view class="text-left  text-sl padding">
+            {{item.title}}
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+  </scroll-view>

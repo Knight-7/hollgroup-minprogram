@@ -1,0 +1,4 @@
+/* pages/tem-transfer/tem-transfer.wxss */
+input{
+  border-bottom:1px solid gray;
+}

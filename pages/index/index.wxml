@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="bg-white padding">
+    <view class ="geid margin-botton text-center" class="col-1">
+    </view>
+</view>
+<!--页面跳转-->
+<home wx:if="{{PageCur=='home'}}"></home>
+<tools wx:if="{{PageCur=='tools'}}"></tools>
+<users wx:if="{{PageCur=='users'}}"></users>
+<publish wx:if="{{PageCur=='publish'}}"></publish>
+<info wx:if="{{PageCur=='info'}}"></info>
+
+<!--自定义下导航栏-->
+<view class="cu-bar tabbar bg-white shadow foot">
+  <!--如果位于home页-->
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/image/Tabbar/home{{PageCur=='home'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">首页</view>
+  </view>
+  <!--如果位于Tools页-->
+  <view class="action" bindtap="NavChange" data-cur="tools">
+    <view class='cuIcon-cu-image'>
+      <image src="/image/Tabbar/task{{PageCur=='tools'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='tools'?'text-green':'text-gray'}}">任务</view>
+  </view>
+  <!--中间的发布按钮-->
+  <view class="action text-gray add-action" catchtap='ClickPublish'>
+		<button class="cu-btn cuIcon-add bg-green shadow"></button>
+		发布
+	</view>
+  <!--如果位于info页-->
+  <view class="action" bindtap="NavChange" data-cur="info">
+    <view class='cuIcon-cu-image'>
+      <image src="/image/Tabbar/info{{PageCur=='info'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='info'?'text-green':'text-gray'}}">信息</view>
+  </view>
+  <!--如果位于users页-->
+  <view class="action" bindtap="NavChange" data-cur="users">
+    <view class='cuIcon-cu-image'>
+      <image src="/image/Tabbar/users{{PageCur=='users'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='users'?'text-green':'text-gray'}}">用户</view>
+  </view>
+  </view>

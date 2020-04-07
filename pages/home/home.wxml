@@ -1,0 +1,37 @@
+<!--pages/home/home.wxml-->
+<!--上导航标题栏-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">测试用标题</view>
+</cu-custom>
+<!--轮播-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="bg-white padding radius light">
+    <swiper class="card-swiper square-dot}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+      <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+        <view class="swiper-item">
+          <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+          <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+    <!--文章类卡片-->
+  <view class="cu-card article">
+  <view class="cu-item shadow " wx:for="{{articalList}}">
+    <view class="title">
+      <view class="text-cut">{{item.title}}</view>
+    </view>
+    <view class="content">
+      <image src= "{{item.url}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content"> {{item.words}}</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">{{item.type}}</view>
+          <view class="cu-tag bg-green light sm round">{{item.tag}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

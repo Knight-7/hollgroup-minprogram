@@ -1,0 +1,5 @@
+<!--pages/users/histroy/history.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">历史订单</view>
+</cu-custom>

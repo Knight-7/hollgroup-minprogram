@@ -1,0 +1,53 @@
+<!--pages/users/home/home.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <!-- 获取用户的姓名和头像 -->
+    <view class="cu-avatar xl radius">
+      <open-data type="userAvatarUrl"></open-data>
+    </view> 
+    <view class="text-black text-center text-blue">
+      <open-data type="userNickName" style="black"></open-data>
+    </view>
+    <button class="cu-btn round lg lines-purple}">登陆</button>
+  </view>
+</scroll-view>
+<!--网格列表-->
+<view class="cu-list grid col-3">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key>
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+<!--目录-->
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <!--跳转页面用,hover-class是点击效果，可以后期完善-->
+      <navigator class="content" url="/pages/users/histroy/history" hover-class="none">
+        <text class="cuIcon-read text-green"></text>
+        <text class="text-grey">历史订单</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="假装有个页面地址" hover-class="none">
+        <text class="cuIcon-service text-green"></text>
+        <text class="text-grey">客服帮助</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="假装有个页面地址" hover-class="none">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="假装有个页面地址" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>

@@ -1,0 +1,16 @@
+/* pages/users/home/home.wxss */
+.UCenter-bg {
+  background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586120469923&di=d5c043795af39f56d551b1f8e4dc9e82&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F01%2F72%2F71%2F595fec60d6c64_610.jpg);
+  background-size: cover;
+  height: 450rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}

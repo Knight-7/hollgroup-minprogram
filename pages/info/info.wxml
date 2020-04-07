@@ -1,0 +1,5 @@
+<!--pages/info/info.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{fasle}}">
+  <view slot="backText">返回</view>
+  <view slot="content">聊天消息</view>
+</cu-custom>

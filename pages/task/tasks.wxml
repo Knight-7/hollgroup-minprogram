@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{fasle}}">
+  <view slot="backText">返回</view>
+  <view slot="content">悬赏一览</view>
+</cu-custom>

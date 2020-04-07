@@ -1,0 +1,33 @@
+<!--pages/Publish/food/food.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">跑腿点餐</view>
+</cu-custom>
+
+<!--填写表单-->
+<form>
+  <view class="cu-item shadow">
+    
+  </view>
+	<view class="cu-form-group margin-top">
+		<view class="title" >订单标题</view>
+		<input placeholder="短标题" bindinput="titleinput"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">订单价格</view>
+		<input placeholder="￥0.00" bindinput="priceinput"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">收货地址</view>
+		<input placeholder="X省X市X区" bindinput="addressinput"></input>
+		<text class="cuIcon-locationfill text-orange"></text>
+	</view>
+  <view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="describeinput" 
+    placeholder="订单详情描述。"></textarea>
+	</view>
+ </form>
+<!--按钮-->
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-blue margin-tb-sm lg" >确定</button>
+</view>
