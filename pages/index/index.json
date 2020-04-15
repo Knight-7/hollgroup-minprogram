@@ -3,6 +3,6 @@
     "home": "/pages/home/home",
     "tools": "/pages/task/tasks",
     "users": "/pages/users/home/home",
-    "info":"/pages/info/info"
+    "info":"/pages/info/infohome/infohome"
   }
 }

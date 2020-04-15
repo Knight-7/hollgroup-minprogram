@@ -2,3 +2,84 @@
   <view slot="backText">返回</view>
   <view slot="content">悬赏一览</view>
 </cu-custom>
+<!--导航栏-->
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{NavGroup}}" bindtap="tabSelect" data-id="{{index}}">
+      {{item.Name}}
+    </view>
+  </view>
+</scroll-view>
+<!--订餐发单-->
+<block wx:if="{{TabCur==0}}">
+  <view class="content">
+    <view class="left">
+      <block wx:for="{{BringOrder}}" wx:key="">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{SendOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      </block>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</block>
+<!--带饭接单-->
+<block wx:if="{{TabCur==1}}">
+<view class="content">
+    <view class="left">
+      <block wx:for="{{BringOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{BringOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      </block>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</block>
+<!--悬赏问答-->
+<block wx:if="{{TabCur==2}}">
+  <view class="content">
+    <view class="left">
+      <block wx:for="{{QandAOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{BringOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      </block>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</block>
+<!--二手交易-->
+<block wx:if="{{TabCur==3}}">
+  <view class="content">
+    <view class="left">
+      <block wx:for="{{MarketOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{MarketOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      </block>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</block>
+<!--  下面是一个模块 -->
+    <template name="item">
+      <view class="item">
+        <image class="item-img" src="{{url}}" mode="widthFix"></image>
+        <view class="solid-bottom text-lg padding bg-white">
+          <text class="text-black">{{title}}</text> 
+        </view>
+      </view>
+    </template>

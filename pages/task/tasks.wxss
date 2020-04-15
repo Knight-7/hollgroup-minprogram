@@ -1,4 +1,59 @@
 /* pages/tem-transfer/tem-transfer.wxss */
-input{
-  border-bottom:1px solid gray;
+.content{
+  margin: 0 20rpx;
+  text-align: justify; 
+}  
+.item1{
+  background-color: #fff;
+  margin: 1%; 
+  margin-bottom: 20rpx;
+  display: inline-block;
+}
+.item-ava{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+}
+.heart{
+  width: 30rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}
+.heart_{
+  display: flex;
+  align-items: center;
+}
+.item-img{
+  width: 100%
+  
+}
+.item-title{
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-family: 'PingFang SC-Medium';
+  color: #1e1e1e;
+  margin: 15rpx;
+  line-height: 27rpx;
+}
+.item .name{
+  display: flex;
+  padding: 0 15rpx;
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+  align-items: center;
+  font-size: 22rpx;
+  color: #1e1e1e;
+  font-family: 'PingFang SC-Medium';
+}
+.left,.right{
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+}
+.right{
+  float: right;
 }

@@ -1,4 +1,4 @@
-// pages/info/info.js
+// pages/info/chat/chat.js
 Page({
 
   /**

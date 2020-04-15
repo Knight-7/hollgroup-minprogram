@@ -5,12 +5,13 @@
     "pages/task/tasks",
     "pages/home/home",
     "pages/Publish/publish/publish",
-    "pages/info/info",
+    "pages/info/infohome/infohome",
     "pages/Publish/answer/answer",
     "pages/Publish/market/market",
     "pages/Publish/food/food",
     "pages/users/home/home",
-    "pages/users/histroy/history"
+    "pages/users/histroy/history",
+    "pages/info/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",
