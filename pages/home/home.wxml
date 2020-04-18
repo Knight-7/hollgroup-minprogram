@@ -4,7 +4,7 @@
   <view slot="content">测试用标题</view>
 </cu-custom>
 <!--轮播-->
-<scroll-view scroll-y class="scrollPage">
+<scroll-view scroll-y class="scrollPage" bindtap="jump">
   <view class="bg-white padding radius light">
     <swiper class="card-swiper square-dot}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
       <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
@@ -16,7 +16,7 @@
     </swiper>
   </view>
     <!--文章类卡片-->
-  <view class="cu-card article">
+  <view class="cu-card article" bindtap="jump">
   <view class="cu-item shadow " wx:for="{{articalList}}">
     <view class="title">
       <view class="text-cut">{{item.title}}</view>

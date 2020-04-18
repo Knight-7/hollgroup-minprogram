@@ -3,3 +3,15 @@
   <view slot="backText">返回</view>
   <view slot="content">历史订单</view>
 </cu-custom>
+<!--时间轴订单-->
+<view class="cu-timeline" wx:for="{{orders}}" wx:key="time">
+  <view class="cu-time">{{item.time}}</view>
+  <view class="cu-item cur cuIcon-noticefill">
+    <view class="content shadow-blur" wx:for="{{item.things}}" wx:key="id">
+        <view class="cu-tag bg-{{item.isout?'red':'blue'}}">{{item.isout?"支出":"收入"}}</view>
+        <view class="cu-tag line-{{item.isout?'red':'blue'}}">{{item.money}}元</view>
+        <text decode="{{true}}" class="text-brown"> &ensp;&ensp;订单编号:{{item.id}}</text>
+        <view class="margin-top">{{item.thing}}</view>
+    </view>
+  </view>
+</view>

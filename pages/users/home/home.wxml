@@ -38,13 +38,13 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="假装有个页面地址" hover-class="none">
+      <navigator class="content" url="/pages/users/advice/advice" hover-class="none">
         <text class="cuIcon-writefill text-cyan"></text>
         <text class="text-grey">意见反馈</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="假装有个页面地址" hover-class="none">
+      <navigator class="content" url="/pages/users/about/about" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">关于我们</text>
       </navigator>

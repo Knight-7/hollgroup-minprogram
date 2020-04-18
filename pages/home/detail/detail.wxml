@@ -1,0 +1,19 @@
+<!--pages/home/detail/detail.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">活动详情</view>
+</cu-custom>
+<!--新闻标题-->
+<view class="bg-white padding text-center">
+    <view class="solid-bottom text-xl padding">
+      测试用标题{{title}}
+    </view>
+    <!--新闻详情-->
+    <view class="solid-bottom text-df padding">
+      测试用{{word}}
+    </view>
+</view>
+<!--新闻配图-->
+<view class="bg-white padding" wx:for="{{imagelist}}">
+    <image src="{{item}}" mode="widthFix"></image>
+</view>

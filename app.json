@@ -11,7 +11,11 @@
     "pages/Publish/food/food",
     "pages/users/home/home",
     "pages/users/histroy/history",
-    "pages/info/chat/chat"
+    "pages/info/chat/chat",
+    "pages/task/detail/detail",
+    "pages/home/detail/detail",
+    "pages/users/about/about",
+    "pages/users/advice/advice"
   ],
   "window": {
     "backgroundTextStyle": "light",

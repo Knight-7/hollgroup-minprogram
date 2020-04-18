@@ -76,7 +76,7 @@
 </block>
 <!--  下面是一个模块 -->
     <template name="item">
-      <view class="item">
+      <view class="item" bindtap="jump">
         <image class="item-img" src="{{url}}" mode="widthFix"></image>
         <view class="solid-bottom text-lg padding bg-white">
           <text class="text-black">{{title}}</text> 

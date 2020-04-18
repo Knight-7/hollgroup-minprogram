@@ -5,62 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 订单数组
+    orders:[
+      {
+        time:"04-16",
+        things:[{
+          id:0,                 //订单号
+          thing:"中午订餐-南苑", //订单内容
+          isout:true,           //是否为支出
+          money:6,              //金额大小
+        },{
+          id:1,
+          thing:"傍晚订餐-南苑",
+          isout:true,
+          money:9,
+        },{
+          id:2,
+          thing:"悬赏问答",
+          isout:false,
+          money:2,
+        }]
+      },
+      {
+        time:"04-15",
+        things:[{
+          id:0,
+          thing:"中午订餐-南苑",
+          isout:true,
+          money:12,
+        }]
+      }
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

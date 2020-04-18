@@ -1,0 +1,39 @@
+<!--pages/task/detail/detail.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+<!--商品标题-->
+<view class="bg-white padding">
+  <view class="grid col-1 margin-bottom text-center">
+    <view class="solid-bottom text-lg padding">
+      测试用标题{{title}}
+    </view>
+  </view>
+</view>
+<!--商品详情-->
+<view class="bg-white padding">
+  <view class="grid col-1 margin-bottom">
+    <view class="solid-bottom text-df padding">
+      测试用{{word}}
+    </view>
+  </view>
+</view>
+<!--图片-->
+<view class="cu-form-group">
+		<view class="grid col-3 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				</view>
+			</view>
+		</view> 
+	</view>
+<!--按钮-->
+<view class="bg-white padding">
+  <view class="flex solid-bottom padding justify-between">
+    <view class="basis-sm cu-btn bg-blue round lg shadow">直接下单</view>
+    <view class="basis-sm cu-btn bg-cyan round lg shadow">拍前聊聊</view>
+  </view>
+</view>  
+

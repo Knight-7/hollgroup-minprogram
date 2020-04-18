@@ -1,0 +1,14 @@
+<!--pages/users/advice/advice.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">意见反馈</view>
+</cu-custom>
+	<view view class="padding bg-white">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您的意见。"></textarea>
+	</view>
+  <!--按钮-->
+<view class="bg-white padding solid">
+  <view class="flex solid-bottom padding justify-center">
+    <view class="basis-sm cu-btn bg-cyan round lg shadow">确认提交</view>
+  </view>
+</view>  

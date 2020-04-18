@@ -39,5 +39,11 @@ Page({
       tag:"实事",
       url: 'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2298440275,3620619061&fm=85&app=2&f=JPEG?w=121&h=75&s=1202D2055ACA5166142FCC52030050F8'
     },]
+  },
+  // 页面跳转
+  jump:function(e){
+    wx.navigateTo({
+      url:'/pages/home/detail/detail',
+    })
   }
 })

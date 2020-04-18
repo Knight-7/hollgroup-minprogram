@@ -126,5 +126,18 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
+  },
+  // 页面跳转
+  jump:function(e){
+    var that=this
+    // 拿到点击的index下标
+    var index=e.currentTarget.dataset.
+    index
+    var tabcur=e.currentTarget.dataset.TabCur
+    // 把对象转为string
+    var queryBean=JSON.stringify(that.data.NavGroup[index])
+    wx.navigateTo({
+      url:'/pages/task/detail/detail?queryBean='+queryBean,
+    })
   }
 })
