@@ -28,4 +28,18 @@ Page({
       describe:e.detail.value
     })
   },
+  //按钮事件
+  finish:function(e){
+    //成功发布提示消息
+    wx.showToast({
+      title: '发布成功',
+      duration: 3000,
+    })
+    setTimeout(function(){
+      //返回上一页
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 3000);   
+  }
 })

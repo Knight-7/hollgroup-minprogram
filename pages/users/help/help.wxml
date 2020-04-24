@@ -1,0 +1,24 @@
+<!--pages/users/help/help.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">客服帮助</view>
+</cu-custom>
+<block wx:for="{{infos}}">
+  <view class="cu-bar bg-white">
+    <view class="action">
+      <text class="cuIcon-titles text-green"></text>
+      <text class="text-xl text-bold">{{item.kindname}}</text>
+    </view>
+  </view>
+  <view class="padding bg-white solid-bottom" wx:for="{{item.answers}}" wx:for-item="cell" wx:key="id">
+    <text class="text-black">{{cell.id}}、{{cell.word}}</text>
+  </view>
+</block>
+<!--点击复制联系方式-->
+
+<view class="cu-bar  bg-white" bindtap="CopyLink">
+  <view class="action sub-title">
+    <text class="text-xl text-bold text-blue">仍有问题，请联系客服：{{Telway}}</text>
+    <text class="text-ABC text-blue">more</text>
+  </view>
+</view>

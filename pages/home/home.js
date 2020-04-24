@@ -42,8 +42,13 @@ Page({
   },
   // 页面跳转
   jump:function(e){
+    // 拿到点击的参数
+    let id=e.currentTarget.dataset.id;
+    console.log('我传入的data-id+',id);
+    // 把对象转为string
+    let idstr=JSON.stringify(id);
     wx.navigateTo({
-      url:'/pages/home/detail/detail',
+      url:'/pages/home/detail/detail?jsonStr='+idstr,
     })
   }
 })

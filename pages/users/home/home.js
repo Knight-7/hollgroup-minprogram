@@ -10,18 +10,11 @@ Page({
     iconList: [{
       icon: 'edit',
       color: 'red',
-      badge: 120,// 条目数量
-      name: '我的发单'
+      name: '修改资料'
     }, {
       icon: 'vipcard',
       color: 'orange',
-      badge: 2,//条目数数量
-      name: '我的接单'
-    }, {
-      icon: 'moneybag',
-      color: 'yellow',
-      badge: 0,//条目数量
-      name: '我的钱包',
-    }],
+      name: '发布历史',
+    }]
   }
 })

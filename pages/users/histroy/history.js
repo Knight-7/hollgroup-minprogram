@@ -12,18 +12,15 @@ Page({
         things:[{
           id:0,                 //订单号
           thing:"中午订餐-南苑", //订单内容
-          isout:true,           //是否为支出
-          money:6,              //金额大小
+          istake:true,          //是否收藏
         },{
           id:1,
           thing:"傍晚订餐-南苑",
-          isout:true,
-          money:9,
+          istake:true,
         },{
           id:2,
           thing:"悬赏问答",
-          isout:false,
-          money:2,
+          istake:false,
         }]
       },
       {
@@ -31,8 +28,7 @@ Page({
         things:[{
           id:0,
           thing:"中午订餐-南苑",
-          isout:true,
-          money:12,
+          istake:true,
         }]
       }
     ]

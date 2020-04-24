@@ -15,9 +15,9 @@
       </swiper-item>
     </swiper>
   </view>
-    <!--文章类卡片-->
+  <!--文章类卡片-->
   <view class="cu-card article" bindtap="jump">
-  <view class="cu-item shadow " wx:for="{{articalList}}">
+  <view class="cu-item shadow " wx:for="{{articalList}}" bindtap="jump" data-id="{{item.id}}">
     <view class="title">
       <view class="text-cut">{{item.title}}</view>
     </view>

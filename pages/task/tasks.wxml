@@ -14,12 +14,12 @@
 <block wx:if="{{TabCur==0}}">
   <view class="content">
     <view class="left">
-      <block wx:for="{{BringOrder}}" wx:key="">
+      <block wx:for="{{BringOrder}}"  >
         <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{SendOrder}}">
+      <block wx:for="{{BringOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
       </block>
     </view>
@@ -30,12 +30,12 @@
 <block wx:if="{{TabCur==1}}">
 <view class="content">
     <view class="left">
-      <block wx:for="{{BringOrder}}">
+      <block wx:for="{{SendOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{BringOrder}}">
+      <block wx:for="{{SendOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
       </block>
     </view>
@@ -74,12 +74,12 @@
   </view>
   <view class='cu-tabbar-height'></view>
 </block>
-<!--  下面是一个模块 -->
-    <template name="item">
-      <view class="item" bindtap="jump">
-        <image class="item-img" src="{{url}}" mode="widthFix"></image>
-        <view class="solid-bottom text-lg padding bg-white">
-          <text class="text-black">{{title}}</text> 
-        </view>
-      </view>
-    </template>
+<!--下面是一个模块 -->
+<template name="item">
+  <view class="item" bindtap="jump" data-item="{{type}}" data-id="{{id}}">
+    <image class="item-img" src="{{url}}" mode="widthFix"></image>
+    <view class="solid-bottom text-lg padding bg-white">
+      <text class="text-black">{{title}}</text> 
+    </view>
+  </view>
+</template>
