@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <!--上导航标题栏-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
-  <view slot="content">测试用标题</view>
+  <view slot="content">百川卉竹</view>
 </cu-custom>
 <!--轮播-->
 <scroll-view scroll-y class="scrollPage" bindtap="jump">

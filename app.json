@@ -15,7 +15,8 @@
     "pages/home/detail/detail",
     "pages/users/about/about",
     "pages/users/advice/advice",
-    "pages/users/help/help"
+    "pages/users/help/help",
+    "pages/Publish/findfood/findfood"
   ],
   "window": {
     "backgroundTextStyle": "light",

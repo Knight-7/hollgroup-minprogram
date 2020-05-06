@@ -2,7 +2,7 @@
 
   <cu-custom bgColor="bg-gradual-blue" isBack="{{fasle}}">
     <view slot="backText">返回</view>
-    <view slot="content">聊天消息</view>
+    <view slot="content">订单情况</view>
   </cu-custom>
   <!--系统消息-->
 <!--导航栏-->

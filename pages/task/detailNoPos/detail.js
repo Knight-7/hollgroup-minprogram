@@ -6,13 +6,12 @@ Page({
   data: {
     QueryBean:"",
     title:"测试用标题",
-    isfav:false,//是否已收藏，true表示是
+    isfav:false,//是否已接受，true表示是
     word:"假装这里有份商品说明吧！",
     // 存放图片的列表
     imgList:["https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1679286314,1857044548&fm=26&gp=0.jpg"
   ],
     price:0,
-    pos:"X市X街道",//收货地址
     way:"联系方式",
     cometype:"",//页面跳转传递的属性
     //favorite 我的收藏

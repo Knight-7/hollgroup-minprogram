@@ -13,6 +13,10 @@
 		<view class="title">酬劳悬赏</view>
 		<input placeholder="￥0.00" bindinput="priceinput"></input>
 	</view>
+	<view class="cu-form-group">
+		<view class="title" >联系电话</view>
+		<input placeholder="请输入联系手机号" bindinput="telinput"></input>
+	</view>
   <view class="cu-form-group margin-top">
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="describeinput" 
     placeholder="问题详情描述。"></textarea>

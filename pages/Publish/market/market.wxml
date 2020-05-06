@@ -18,33 +18,37 @@
 		<input placeholder="X省X市X区" bindinput="addressinput"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
+	<view class="cu-form-group">
+		<view class="title" >联系电话</view>
+		<input placeholder="请输入联系手机号" bindinput="telinput"></input>
+	</view>
   <view class="cu-form-group margin-top">
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="describeinput" 
     placeholder="商品详情描述。"></textarea>
 	</view>
  </form>
 <!--图片上传-->
-	<view class="cu-bar bg-white margin-top">
-		<view class="action">
-			图片上传
-		</view>
-		<view class="action">
-			{{imgList.length}}/9
-		</view>
+<view class="cu-bar bg-white margin-top">
+	<view class="action">
+		图片上传
 	</view>
-	<view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
-				<text class="cuIcon-cameraadd"></text>
+	<view class="action">
+		{{imgList.length}}/9
+	</view>
+</view>
+<view class="cu-form-group">
+	<view class="grid col-4 grid-square flex-sub">
+		<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+			<image src='{{imgList[index]}}' mode='aspectFill'></image>
+			<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				<text class="cuIcon-close"></text>
 			</view>
 		</view>
+		<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+			<text class="cuIcon-cameraadd"></text>
+		</view>
 	</view>
+</view>
 <!--按钮-->
 <view class="padding flex flex-direction">
   <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="finish">确定</button>

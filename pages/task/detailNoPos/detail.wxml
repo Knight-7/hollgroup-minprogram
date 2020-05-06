@@ -43,13 +43,6 @@
   </view>
   <text class="text-black">{{way}}</text>
 </view>
-<!--地点方式-->
-<view class="cu-form-group">
-	<view class="title">
-    <text class="cuIcon-locationfill lg"></text>
-  </view>
-  <text class="text-black">{{pos}}</text>
-</view>
 <!--按钮-->
 <view class="bg-white padding">
   <view class="flex solid-bottom padding justify-between" wx:if="{{isfav}}">

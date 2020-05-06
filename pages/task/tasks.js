@@ -24,25 +24,40 @@ Page({
         id:'0',
         type:'SendOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        //用户头像图片地址
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771969&di=ad1b3aaf04396f550576f86cf719d2af&imgtype=0& src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201509%2F16%2F20150916122607_Jvk5U.jpeg",
+        //用户id
+        idname:"测试1测试1测试1测试1",
+        //价格
+        price:4.0
       },
       {
         id:'1',
         type:'SendOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'2',
         type:'SendOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'3',
         type:'SendOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
     ],
     //带饭发单瀑布流数组
@@ -51,25 +66,37 @@ Page({
         id:'0',
         type:'BringOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'1',
         type:'BringOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'2',
         type:'BringOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'3',
         type:'BringOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
     ],
     //悬赏问答瀑布流数组
@@ -78,25 +105,37 @@ Page({
         id:'0',
         type:'QandAOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771969&di=ad1b3aaf04396f550576f86cf719d2af&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201509%2F16%2F20150916122607_Jvk5U.jpeg",
+        idname:"测试1测试1测试1测试1",
+        price:4.0
       },
       {
         id:'1',
         type:'QandAOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'2',
         type:'QandAOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'3',
         type:'QandAOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
     ],
     //二手交易瀑布流数组
@@ -105,37 +144,55 @@ Page({
         id:'0',
         type:'MarketOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'1',
         type:'MarketOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'2',
         type:'MarketOrder',
         title:"午饭跑腿带",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'3',
         type:'MarketOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'4',
         type:'MarketOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       },
       {
         id:'5',
         type:'MarketOrder',
         title:"帮带南苑饭",
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1336182742,3159167308&fm=26&gp=0.jpg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
+        idname:"测试2",
+        price:5.0
       }
     ]
   },
@@ -151,11 +208,24 @@ Page({
     let item=e.currentTarget.dataset.item;
     let id=e.currentTarget.dataset.id;
     console.log('我传入的data-id+',id,'我传入的data-item',item);
-    // 把对象转为string
+    // 把对象转为JSON
     let idstr=JSON.stringify(id);
     let itemstr=JSON.stringify(item);
     wx.navigateTo({
       url:'/pages/task/detail/detail?jsonStr='+idstr+"&strr="+itemstr,
+    })
+  },
+  // 页面跳转2
+  jump1:function(e){
+    // 拿到点击的参数
+    let item=e.currentTarget.dataset.item;
+    let id=e.currentTarget.dataset.id;
+    console.log('我传入的data-id+',id,'我传入的data-item',item);
+    // 把对象转为JSON
+    let idstr=JSON.stringify(id);
+    let itemstr=JSON.stringify(item);
+    wx.navigateTo({
+      url:'/pages/task/detailNoPos/detail?jsonStr='+idstr+"&strr="+itemstr,
     })
   }
 })

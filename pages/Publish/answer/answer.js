@@ -9,6 +9,7 @@ Page({
     title:"",   // 问题标题
     price:0.0,  // 酬劳价格
     describe:"",// 问题描述
+    tel:"",//手机号
   },
   // 标题填写
   titleinput(e){
@@ -20,6 +21,12 @@ Page({
   priceinput(e){
     this.setData({
       price:e.detail.value
+    })
+  },
+  // 电话填写
+  telinput(e){
+    this.setData({
+      tel:e.detail.value
     })
   },
   // 问题详情

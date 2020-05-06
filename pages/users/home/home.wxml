@@ -12,13 +12,16 @@
   </view>
 </scroll-view>
 <!--网格列表-->
-<view class="cu-list grid col-2">
-    <view class="cu-item" wx:for="{{iconList}}" wx:key>
-      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
-      </view>
-      <text>{{item.name}}</text>
-    </view>
+<view class="cu-list grid col-2 ">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key>
+    <view class=" cuIcon-{{item.icon}} text-{{item.color}}"></view>
+    <text>{{item.name}}</text>
   </view>
+  <view class="cu-item justify-center ">
+    <view class="padding-top-sm text-center text-xxl text-orange">{{creval}}</view>
+    <text calss="text-center" >信誉积分</text>
+  </view>
+</view>
 <!--目录-->
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">

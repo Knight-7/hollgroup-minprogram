@@ -10,7 +10,8 @@ Page({
     title:"",   // 商品标题
     price:0.0,  // 商品价格  
     describe:"",// 商品描述
-    address:""  // 地址
+    address:"",  // 地址
+    tel:"",//手机号
   },
   // 标题填写
   titleinput(e){
@@ -34,6 +35,12 @@ Page({
   describeinput(e){
     this.setData({
       describe:e.detail.value
+    })
+  },
+  // 电话填写
+  telinput(e){
+    this.setData({
+      tel:e.detail.value
     })
   },
   // 图片选择
