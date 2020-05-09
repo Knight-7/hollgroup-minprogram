@@ -1,0 +1,21 @@
+<!--pages/task/detail/detail.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">修改信息</view>
+</cu-custom>
+<!--填写表单-->
+<form>
+	<view class="cu-form-group">
+		<view class="title">收货地址</view>
+		<input placeholder="{{address}}" bindinput="addressinput"></input>
+		<text class="cuIcon-locationfill text-orange"></text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title" >联系电话</view>
+		<input placeholder="{{tel}}" bindinput="telinput"></input>
+	</view>
+</form>
+<!--按钮-->
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="finish">确认提交</button>
+</view>

@@ -26,7 +26,7 @@ Page({
         title:"帮带南苑饭",
         url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1856756895,1265182977&fm=26&gp=0.jpg",
         //用户头像图片地址
-        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771969&di=ad1b3aaf04396f550576f86cf719d2af&imgtype=0& src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201509%2F16%2F20150916122607_Jvk5U.jpeg",
+        idurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588778771968&di=860d6683687393c342ccdf76dd49fd77&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F19%2F20170819172652_JnzmX.thumb.700_0.jpeg",
         //用户id
         idname:"测试1测试1测试1测试1",
         //价格

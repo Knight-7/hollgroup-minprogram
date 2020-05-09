@@ -16,7 +16,11 @@
     "pages/users/about/about",
     "pages/users/advice/advice",
     "pages/users/help/help",
-    "pages/Publish/findfood/findfood"
+    "pages/Publish/findfood/findfood",
+    "pages/info/detailPub/DetailPub",
+    "pages/info/detailAce/detailAce",
+    "pages/info/detailPub/detailPub",
+    "pages/users/changeinfo/changeinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

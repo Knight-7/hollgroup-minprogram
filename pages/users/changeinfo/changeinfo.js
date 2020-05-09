@@ -1,17 +1,23 @@
-// pages/users/advice/advice.js
+// pages/users/changeinfo/changeinfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 文本输入
-    textinput:"",
-    modalName: null
+    address:"初始地址",//地址
+    tel:"初始手机号",//手机号
   },
-  textareaAInput(e) {
+  //地址填写
+  addressinput(e){
     this.setData({
-      textareaAValue: e.detail.value
+      address:e.detail.value
+    })
+  },
+  // 电话填写
+  telinput(e){
+    this.setData({
+      tel:e.detail.value
     })
   },
   //按钮事件

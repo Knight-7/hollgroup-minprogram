@@ -1,5 +1,5 @@
 <!--pages/task/detail/detail.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
   <view slot="backText">返回</view>
   <view slot="content">详情</view>
 </cu-custom>
@@ -43,6 +43,20 @@
   </view>
   <text class="text-price">{{price}}元</text>
 </view>
+<!--订单发布者-->
+<view class="cu-form-group ">
+	<view class="title">
+    <text class="cuIcon-people lg">发布用户</text>
+  </view>
+  <text class="text-black">{{owner}}</text>
+</view>
+<!--订单接受者-->
+<view class="cu-form-group ">
+	<view class="title">
+    <text class="cuIcon-people lg">接单用户</text>
+  </view>
+  <text class="text-black">{{worker}}</text>
+</view>
 <!--联系方式-->
 <view class="cu-form-group ">
 	<view class="title">
@@ -50,25 +64,32 @@
   </view>
   <text class="text-black">{{way}}</text>
 </view>
-<!--地点方式-->
-<view class="cu-form-group">
+<!--订单发布时间-->
+<view class="cu-form-group ">
 	<view class="title">
-    <text class="cuIcon-locationfill lg">订单地点</text>
+    <text class="cuIcon-time lg">发布时间</text>
+  </view>
+  <text class="text-black">{{publictime}}</text>
+</view>
+<!--订单接受时间-->
+<view class="cu-form-group ">
+	<view class="title">
+    <text class="cuIcon-check lg">接单时间</text>
+  </view>
+  <text class="text-black">{{accepttime}}</text>
+</view>
+<!--订单接受时间-->
+<view class="cu-form-group ">
+	<view class="title">
+    <text class="cuIcon-check lg">结束时间</text>
+  </view>
+  <text class="text-black">{{finishtime}}</text>
+</view>
+<!--地点方式-->
+<view class="cu-form-group" wx:if="{{cometype!=1}}">
+	<view class="title">
+    <text class="cuIcon-locationfill lg">订单地址</text>
   </view>
   <text class="text-black">{{pos}}</text>
 </view>
-<!--按钮-->
-<view class="bg-white padding">
-  <view class="flex solid-bottom padding justify-between" wx:if="{{isfav}}">
-    <view class="basis-sm cu-btn bg-blue round lg shadow">            
-      <view >取消订单</view>
-    </view>
-    <view class="basis-sm cu-btn bg-cyan round lg shadow">接收订单</view>
-  </view>
-  <view wx:else>
-    <view class="flex solid-bottom padding justify-center">
-      <view class="basis-sm cu-btn bg-cyan round lg shadow" bindtap="finish">接收订单</view>
-    </view>
-  </view>
-</view>  
 

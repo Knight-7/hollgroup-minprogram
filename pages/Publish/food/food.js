@@ -10,6 +10,7 @@ Page({
     price:0.0,  // 酬劳价格
     describe:"",// 订单描述
     tel:"",//手机号
+    address:""
   },
   // 标题填写
   titleinput(e){
@@ -33,6 +34,12 @@ Page({
   telinput(e){
     this.setData({
       tel:e.detail.value
+    })
+  },
+  //地址填写
+  addressinput(e){
+    this.setData({
+      address:e.detail.value
     })
   },
   // 图片选择

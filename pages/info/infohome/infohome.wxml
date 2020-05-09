@@ -4,7 +4,6 @@
     <view slot="backText">返回</view>
     <view slot="content">订单情况</view>
   </cu-custom>
-  <!--系统消息-->
 <!--导航栏-->
 <scroll-view scroll-x class="bg-white nav">
   <view class="flex text-center">
@@ -13,12 +12,12 @@
     </view>
   </view>
 </scroll-view>
-<!--浏览历史-->
+<!--我发布的-->
 <block wx:if="{{TabCur==0}}">
   <!--文章类卡片-->
   <view class="cu-card article no-card "  >
-    <!--类型是historys，序号是id-->
-    <view class="cu-item shadow solid-bottom" wx:for="{{histroys}}" bindtap="jump" data-item="historys" data-id="{{item.id}}">
+    <!--类型是订单类型，序号是id-->
+    <view class="cu-item shadow solid-bottom" wx:for="{{Public}}" bindtap="jumpPub" data-item="{{item.type}}" data-id="{{item.id}}">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
       </view>
@@ -27,19 +26,25 @@
         <view class="desc">
           <view class="text-content"> {{item.words}}</view>
           <view>
-            <view class="cu-tag bg-red light sm round">{{item.type}}</view>
+            <view class="cu-tag bg-red light sm round">
+              <view wx:if="{{item.type==1}}">互助答疑</view>
+              <view wx:elif="{{item.type==2}}">跑腿送餐</view>
+              <view wx:elif="{{item.type==3}}">找人带饭</view>
+              <view wx:elif="{{item.type==4}}">闲置交易</view>
+              <view wx:else>其他</view>
+            </view>
           </view>
         </view>
       </view>
     </view>
   </view>
 </block>
-<!--我的收藏-->
+<!--我接受的-->
 <block wx:if="{{TabCur==1}}">
 <!--文章类卡片-->
   <view class="cu-card article no-card">
-    <!--类型是favorite，序号是id-->
-    <view class="cu-item shadow " wx:for="{{favorite}}" bindtap="jump" data-item="favorite" data-id="{{item.id}}">
+    <!--类型是订单类型，序号是id-->
+    <view class="cu-item shadow " wx:for="{{Access}}" bindtap="jumpAce" data-item="{{item.type}}" data-id="{{item.id}}">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
       </view>
@@ -48,7 +53,13 @@
         <view class="desc">
           <view class="text-content"> {{item.words}}</view>
           <view>
-            <view class="cu-tag bg-red light sm round">{{item.type}}</view>
+            <view class="cu-tag bg-red light sm round">
+              <view wx:if="{{item.type==1}}">互助答疑</view>
+              <view wx:elif="{{item.type==2}}">跑腿送餐</view>
+              <view wx:elif="{{item.type==3}}">找人带饭</view>
+              <view wx:elif="{{item.type==4}}">闲置交易</view>
+              <view wx:else>其他</view>
+            </view>
           </view>
         </view>
       </view>

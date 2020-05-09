@@ -13,7 +13,7 @@
 </scroll-view>
 <!--网格列表-->
 <view class="cu-list grid col-2 ">
-  <view class="cu-item" wx:for="{{iconList}}" wx:key>
+  <view class="cu-item" wx:for="{{iconList}}" wx:key bindtap="jump">
     <view class=" cuIcon-{{item.icon}} text-{{item.color}}"></view>
     <text>{{item.name}}</text>
   </view>

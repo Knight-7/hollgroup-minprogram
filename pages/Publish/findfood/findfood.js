@@ -9,6 +9,7 @@ Page({
     title:"",   // 问题标题
     price:0.0,  // 酬劳价格
     describe:"",// 订单描述
+    address:"",//地址
     tel:"",//手机号
     multiArray: [
       ['正餐便当','加菜小吃','水果饮料'],
@@ -63,6 +64,12 @@ Page({
   priceinput(e){
     this.setData({
       price:e.detail.value
+    })
+  },
+  //地址填写
+  addressinput(e){
+    this.setData({
+      address:e.detail.value
     })
   },
   // 订单详情

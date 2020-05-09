@@ -13,5 +13,11 @@ Page({
       color: 'red',
       name: '修改资料'
     }]
+  },
+  // 页面跳转
+  jump:function(e){
+    wx.navigateTo({
+      url:'/pages/users/changeinfo/changeinfo',
+    })
   }
 })

@@ -16,7 +16,9 @@ Page({
   onLoad: function (options) {
     let that=this
     let id=JSON.parse(options.jsonStr)
-    this.data.comeid=id
+    that.setData({
+      comeid:id
+    })
     console.log("传递过来的序号是",this.data.comeid);
   },
 })

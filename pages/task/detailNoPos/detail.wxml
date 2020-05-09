@@ -53,7 +53,7 @@
   </view>
   <view wx:else>
     <view class="flex solid-bottom padding justify-center">
-      <view class="basis-sm cu-btn bg-cyan round lg shadow">接收订单</view>
+      <view class="basis-sm cu-btn bg-cyan round lg shadow" bindtap="finish">接受订单</view>
     </view>
   </view>
 </view>  
