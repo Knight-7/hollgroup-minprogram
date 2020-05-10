@@ -1,15 +1,26 @@
 <!--index.wxml-->
-<view class="bg-white padding">
-    <view class ="geid margin-botton text-center" class="col-1">
-    </view>
+<view wx:if="{{!hasUserInfo && canIUse}}">
+  <!--为了让按钮居中-->
+  <view class='padding margin text-center'></view>
+  <view class='padding margin text-center'></view>
+  <view class='padding margin text-center'></view>
+  <view class='padding margin text-center'></view>
+  <view class='padding margin text-center'></view>
+  <!--获取登录信息-->
+  <view class='padding margin text-center'>
+		<button class='cu-btn bg-cyan lg block shadow radius margin-xl' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+			登陆授权
+  	</button>
+	</view>
 </view>
+<!--登录之后-->
+<block wx:else>
 <!--页面跳转-->
 <home wx:if="{{PageCur=='home'}}"></home>
 <tools wx:if="{{PageCur=='tools'}}"></tools>
 <users wx:if="{{PageCur=='users'}}"></users>
 <publish wx:if="{{PageCur=='publish'}}"></publish>
 <info wx:if="{{PageCur=='info'}}"></info>
-
 <!--自定义下导航栏-->
 <view class="cu-bar tabbar bg-white shadow foot">
   <!--如果位于home页-->
@@ -46,3 +57,4 @@
     <view class="{{PageCur=='users'?'text-green':'text-gray'}}">用户</view>
   </view>
   </view>
+</block>

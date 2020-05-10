@@ -8,7 +8,6 @@
     <view class="text-black text-center text-blue">
       <open-data type="userNickName" style="black"></open-data>
     </view>
-    <button class="cu-btn round lg lines-purple}">登陆</button>
   </view>
 </scroll-view>
 <!--网格列表-->
