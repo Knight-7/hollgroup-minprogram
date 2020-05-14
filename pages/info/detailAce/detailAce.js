@@ -1,4 +1,5 @@
 // pages/task/detail/detail.js
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -6,16 +7,16 @@ Page({
   data: {
     QueryBean:"",
     title:"测试用标题",
-    word:"假装这里有份商品说明吧！",
+    detail:"假装这里有份商品说明吧！",
     // 存放图片的列表
     imgList:["https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1679286314,1857044548&fm=26&gp=0.jpg"
   ],
     price:0,
-    owner:"订单发布者",
-    publictime:"2020年3月3日",//订单发布时间
-    accepttime:"2020年3月3日", //接受时间
-    pos:"X市X街道",//收货地址
-    way:"联系方式",//发单人的联系方式
+    fromName:"订单发布者",
+    publishTime:"2020年3月3日",//订单发布时间
+    startTime:"2020年3月3日", //接受时间
+    location:"X市X街道",//收货地址
+    phone:"联系方式",//发单人的联系方式
     /*
      *  订单类型：
         1 互助答疑
@@ -23,8 +24,8 @@ Page({
         3 找人带饭
         4 闲置交易
      */
-    cometype:0,//页面跳转传递的订单属性
-    comeid:0,//页面跳转传递的订单编号
+    orderType:0,//页面跳转传递的订单属性
+    orderId:0,//页面跳转传递的订单编号
   },
   /**
    * 生命周期函数--监听页面加载
@@ -34,11 +35,37 @@ Page({
     let item=JSON.parse(options.strr)
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      cometype:item,
-      comeid:id
+      orderType:item,
+      orderId:id
     })
     console.log("传递过来的参数类型是",this.data.cometype,"序号是",this.data.comeid);
-    
+    wx.request({
+      url: app.globalData.baseUrl + '/order/getDealById',
+      data: {
+        'orderId': '10005',
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: (res)=> {
+        that.setData({
+          title: res.data.title,
+          detail: res.data.detail,
+          price: res.data.price,
+          fromName: res.data.fromName,
+          publishTime: res.data.publishTime,
+          startTime: res.data.startTime,
+          location: res.data.location,
+          phone: res.data.phone,
+          orderType: res.data.orderType
+        });
+        console.log(that.data);
+      },
+      fail: function() {
+        console.log("获取数据失败");
+      }
+    })
   },
   // 预览图片
   ViewImage(e) {

@@ -7,7 +7,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom text-center">
     <view class="solid-bottom text-lg padding">
-      测试用标题{{title}}
+      {{title}}
     </view>
   </view>
 </view>
@@ -16,13 +16,13 @@
 	<view class="title ">
     <text class="cuIcon-edit">订单编号</text>
   </view>
-  <text class="text-black">{{comeid}}</text>
+  <text class="text-black">{{orderId}}</text>
 </view>
 <!--商品详情-->
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情asfdawfewgsfagqewfqwfsf{{word}}
+      测试用商品详情: {{detail}}
     </view>
   </view>
 </view>
@@ -48,48 +48,48 @@
 	<view class="title">
     <text class="cuIcon-people lg">发布用户</text>
   </view>
-  <text class="text-black">{{owner}}</text>
+  <text class="text-black">{{fromName}}</text>
 </view>
 <!--订单接受者-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-people lg">接单用户</text>
   </view>
-  <text class="text-black">{{worker}}</text>
+  <text class="text-black">{{toName}}</text>
 </view>
 <!--联系方式-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-phone lg">联系方式</text>
   </view>
-  <text class="text-black">{{way}}</text>
+  <text class="text-black">{{phone}}</text>
 </view>
 <!--订单发布时间-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-time lg">发布时间</text>
   </view>
-  <text class="text-black">{{publictime}}</text>
+  <text class="text-black">{{publishTime}}</text>
 </view>
 <!--订单接受时间-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-check lg">接单时间</text>
   </view>
-  <text class="text-black">{{accepttime}}</text>
+  <text class="text-black">{{startTime}}</text>
 </view>
 <!--订单接受时间-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-check lg">结束时间</text>
   </view>
-  <text class="text-black">{{finishtime}}</text>
+  <text class="text-black">{{finishTime}}</text>
 </view>
 <!--地点方式-->
 <view class="cu-form-group" wx:if="{{cometype!=1}}">
 	<view class="title">
     <text class="cuIcon-locationfill lg">订单地址</text>
   </view>
-  <text class="text-black">{{pos}}</text>
+  <text class="text-black">{{location}}</text>
 </view>
 

@@ -1,4 +1,6 @@
 // pages/Publish/food/food.js
+var app = getApp()
+
 Page({
 
   /**
@@ -86,6 +88,30 @@ Page({
   },
   //按钮事件
   finish:function(e){
+    let that = this;
+    console.log(that.data)
+    wx.request({
+      url: app.globalData.baseUrl + '/order/submit',
+      data: {
+        "openid": app.globalData.userOpenId,
+        "title": that.data.title,   // 问题标题
+        "price": that.data.price,  // 酬劳价格
+        "type": '1',
+        "detail": that.data.describe,// 订单描述
+        "location": that.data.address,//地址
+        "phone": that.data.tel,//手机号,
+        "picture": '1'
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+      success: (res)=>{
+        console.log("提交成功");
+      },
+      fail: function() {
+        console.log("提交失败");
+      }
+    })
     //成功发布提示消息
     wx.showToast({
       title: '发布成功',
@@ -97,5 +123,8 @@ Page({
         delta: 1
       })
     }, 3000);   
+  },
+  onLoad: function() {
+    console.log(app.globalData.userOpenId)
   }
 })

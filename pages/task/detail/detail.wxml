@@ -16,13 +16,13 @@
 	<view class="title ">
     <text class="cuIcon-edit">订单编号</text>
   </view>
-  <text class="text-black">{{comeid}}</text>
+  <text class="text-black">{{orderId}}</text>
 </view>
 <!--商品详情-->
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情asfdawfewgsfagqewfqwfsf{{word}}
+      测试用商品详情{{detai}}
     </view>
   </view>
 </view>
@@ -48,14 +48,14 @@
 	<view class="title">
     <text class="cuIcon-phone lg">联系方式</text>
   </view>
-  <text class="text-black">{{way}}</text>
+  <text class="text-black">{{phone}}</text>
 </view>
 <!--地点方式-->
 <view class="cu-form-group">
 	<view class="title">
     <text class="cuIcon-locationfill lg">订单地点</text>
   </view>
-  <text class="text-black">{{pos}}</text>
+  <text class="text-black">{{location}}</text>
 </view>
 <!--按钮-->
 <view class="bg-white padding">

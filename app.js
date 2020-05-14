@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    let that = this;
     if (wx.cloud) {
       wx.cloud.init({
         traceUser: true
@@ -23,6 +24,29 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var code = res.code;
+        wx.getUserInfo({
+          success: (res) => {
+            wx.request({
+              url: this.globalData.baseUrl + '/user/login',
+              data: {
+                'code': code,
+                'iv': res.iv,
+                'encryptedData': res.encryptedData
+              },
+              header: {
+                'content-type': 'application/json'
+              },
+              success: (res) =>{
+                that.globalData.userOpenId = res.data.openid;
+                console.log(res)
+              },
+              fail: function() {
+                console.log("登陆失败")
+              }
+            })
+          },
+        })
       }
     })
     // 获取用户信息
@@ -52,7 +76,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userOpenId: null,
+    baseUrl: 'http://localhost:3434'
   }
 
 })

@@ -1,4 +1,5 @@
 // pages/Tools/Tools.js
+var app = getApp()
 Page({
   data: {
     TabCur: 0,
@@ -196,6 +197,28 @@ Page({
       }
     ]
   },
+  onLoad: function() {
+    console.log(111);
+    this.fresh();
+  },
+  onHide: function() {
+    console.log("222");
+  },
+  fresh: function() {
+    wx.request({
+      url: app.globalData.baseUrl + '/order/fresh',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: (res)=>{
+        console.log(res.data)
+      },
+      fail: function() {
+        console.log("刷新失败")
+      }
+    })
+  },
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
@@ -227,5 +250,5 @@ Page({
     wx.navigateTo({
       url:'/pages/task/detailNoPos/detail?jsonStr='+idstr+"&strr="+itemstr,
     })
-  }
+  },
 })
