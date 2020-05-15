@@ -1,9 +1,7 @@
-// pages/home/home.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
     // 轮播用列表，存图片URL
     swiperList: [{
@@ -40,15 +38,48 @@ Page({
       url: 'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2298440275,3620619061&fm=85&app=2&f=JPEG?w=121&h=75&s=1202D2055ACA5166142FCC52030050F8'
     },]
   },
-  // 页面跳转
-  jump:function(e){
-    // 拿到点击的参数
-    let id=e.currentTarget.dataset.id;
-    console.log('我传入的data-id+',id);
-    // 把对象转为string
-    let idstr=JSON.stringify(id);
-    wx.navigateTo({
-      url:'/pages/home/detail/detail?jsonStr='+idstr,
-    })
+  methods: {
+    //点击轮播图进行页面跳转
+    jumpswip(e){
+      // 拿到点击的参数
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id);
+      // 把对象转为string
+      let idstr=JSON.stringify(id);
+      wx.navigateTo({
+        url:'/pages/home/detail/detail?jsonStr='+idstr,
+      })
+    },
+    // 点击文章卡片，进行页面跳转
+    jumpart(e){
+      // 拿到点击的参数
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id);
+      // 把对象转为string
+      let idstr=JSON.stringify(id);
+      wx.navigateTo({
+        url:'/pages/home/detail/detail?jsonStr='+idstr,
+      })
+    },
+    // cardSwiper轮播事件
+    cardSwiper(e) {
+      this.setData({
+        cardCur: e.detail.current
+      })
+    },
+  },
+  lifetimes:{
+    // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
+    // 简单来说就是tabbar切换的时候调用它
+    attached:function(){
+      console.log('Component-1 >> attached');
+      console.log("home页面初始化啦！");
+    }
+  },
+  pageLifetimes:{
+    // detail返回时会调用的的地方
+    show:function(){
+      console.log('Component-1 pageLifetimes >> home  Show');
+    },
   }
 })

@@ -1,6 +1,7 @@
-// pages/Tools/Tools.js
-var app = getApp()
-Page({
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
     TabCur: 0,
     scrollLeft:0,
@@ -197,58 +198,72 @@ Page({
       }
     ]
   },
-  onLoad: function() {
-    console.log(111);
-    this.fresh();
+  methods:{
+    fresh() {
+      wx.request({
+        url: app.globalData.baseUrl + '/order/fresh',
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        success: (res)=>{
+          console.log(res.data)
+        },
+        fail: function() {
+          console.log("刷新失败")
+        }
+      })
+    },
+    tabSelect(e) {
+      this.setData({
+        TabCur: e.currentTarget.dataset.id,
+        scrollLeft: (e.currentTarget.dataset.id-1)*60
+      })
+      //切换页面时刷新数据
+      //this.fresh();
+      console.log("请在methods的tabSelect函数里加上刷新数据的函数")
+    },
+    // 页面跳转
+    jump(e){
+      // 拿到点击的参数
+      let item=e.currentTarget.dataset.item;
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      // 把对象转为JSON
+      let idstr=JSON.stringify(id);
+      let itemstr=JSON.stringify(item);
+      wx.navigateTo({
+        url:'/pages/task/detail/detail?jsonStr='+idstr+"&strr="+itemstr,
+      })
+    },
+    // 页面跳转2
+    jump1(e){
+      // 拿到点击的参数
+      let item=e.currentTarget.dataset.item;
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      // 把对象转为JSON
+      let idstr=JSON.stringify(id);
+      let itemstr=JSON.stringify(item);
+      wx.navigateTo({
+        url:'/pages/task/detailNoPos/detail?jsonStr='+idstr+"&strr="+itemstr,
+      })
+    },
   },
-  onHide: function() {
-    console.log("222");
+  lifetimes:{
+    // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
+    // 简单来说就是tabbar切换的时候调用它
+    attached:function(){
+      console.log('Component-1 >> attached');
+      console.log("Task页面初始化啦！");
+      //this.fresh();
+    }
   },
-  fresh: function() {
-    wx.request({
-      url: app.globalData.baseUrl + '/order/fresh',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "GET",
-      success: (res)=>{
-        console.log(res.data)
-      },
-      fail: function() {
-        console.log("刷新失败")
-      }
-    })
-  },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
-    })
-  },
-  // 页面跳转
-  jump:function(e){
-    // 拿到点击的参数
-    let item=e.currentTarget.dataset.item;
-    let id=e.currentTarget.dataset.id;
-    console.log('我传入的data-id+',id,'我传入的data-item',item);
-    // 把对象转为JSON
-    let idstr=JSON.stringify(id);
-    let itemstr=JSON.stringify(item);
-    wx.navigateTo({
-      url:'/pages/task/detail/detail?jsonStr='+idstr+"&strr="+itemstr,
-    })
-  },
-  // 页面跳转2
-  jump1:function(e){
-    // 拿到点击的参数
-    let item=e.currentTarget.dataset.item;
-    let id=e.currentTarget.dataset.id;
-    console.log('我传入的data-id+',id,'我传入的data-item',item);
-    // 把对象转为JSON
-    let idstr=JSON.stringify(id);
-    let itemstr=JSON.stringify(item);
-    wx.navigateTo({
-      url:'/pages/task/detailNoPos/detail?jsonStr='+idstr+"&strr="+itemstr,
-    })
-  },
+  pageLifetimes:{
+    // detail返回时会调用的的地方
+    show:function(){
+      console.log('Component-1 pageLifetimes >> Show');
+      //this.fresh();
+    },
+  }
 })

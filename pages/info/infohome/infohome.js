@@ -1,11 +1,8 @@
-
-
-// pages/info/info.js
 const app = getApp();
-Page({
-  /**
-   * 页面的初始数据
-   */
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
     TabCur: 0,
     StatusBar: app.globalData.StatusBar,
@@ -75,36 +72,56 @@ Page({
       
     ],
   },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
-    })
+  //其中切换选项栏的TABBAR应该要加上刷新函数
+  methods:{
+    //页內上端TABBAR页面切换用
+    tabSelect(e) {
+      this.setData({
+        TabCur: e.currentTarget.dataset.id,
+        scrollLeft: (e.currentTarget.dataset.id-1)*60
+      })
+      //刷新数据函数
+      console.log("请在methods的tabSelect函数里加上刷新数据的函数")
+    },
+    // 页面跳转到发布的订单页面
+    jumpPub(e){
+      // 拿到点击的参数
+      let item=e.currentTarget.dataset.item;
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      // 把对象转为string
+      let idstr=JSON.stringify(id);
+      let itemstr=JSON.stringify(item);
+      wx.navigateTo({
+        url:'/pages/info/detailPub/detailPub?jsonStr='+idstr+"&strr="+itemstr,
+      })
+    },
+    // 页面跳转到发布的订单页面
+    jumpAce(e){
+      // 拿到点击的参数
+      let item=e.currentTarget.dataset.item;
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      // 把对象转为string
+      let idstr=JSON.stringify(id);
+      let itemstr=JSON.stringify(item);
+      wx.navigateTo({
+        url:'/pages/info/detailAce/detailAce?jsonStr='+idstr+"&strr="+itemstr,
+      })
+    }
   },
-  // 页面跳转到发布的订单页面
-  jumpPub:function(e){
-    // 拿到点击的参数
-    let item=e.currentTarget.dataset.item;
-    let id=e.currentTarget.dataset.id;
-    console.log('我传入的data-id+',id,'我传入的data-item',item);
-    // 把对象转为string
-    let idstr=JSON.stringify(id);
-    let itemstr=JSON.stringify(item);
-    wx.navigateTo({
-      url:'/pages/info/detailPub/detailPub?jsonStr='+idstr+"&strr="+itemstr,
-    })
+  lifetimes:{
+    // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
+    // 简单来说就是tabbar切换的时候调用它
+    attached:function(){
+      console.log('Component-1 >> attached');
+      console.log("info home页面初始化啦！");
+    }
   },
-  // 页面跳转到发布的订单页面
-  jumpAce:function(e){
-    // 拿到点击的参数
-    let item=e.currentTarget.dataset.item;
-    let id=e.currentTarget.dataset.id;
-    console.log('我传入的data-id+',id,'我传入的data-item',item);
-    // 把对象转为string
-    let idstr=JSON.stringify(id);
-    let itemstr=JSON.stringify(item);
-    wx.navigateTo({
-      url:'/pages/info/detailAce/detailAce?jsonStr='+idstr+"&strr="+itemstr,
-    })
+  pageLifetimes:{
+    // detail返回时会调用的的地方
+    show:function(){
+      console.log('Component-1 pageLifetimes >> info home  Show');
+    },
   }
 })

@@ -1,12 +1,15 @@
 //app.js
 App({
+  
   onLaunch: function () {
+    /*
     let that = this;
     if (wx.cloud) {
       wx.cloud.init({
         traceUser: true
       })
     }
+    */
     wx.getSystemInfo({
       // 自定义上导航栏
       success: e => {
@@ -22,6 +25,7 @@ App({
     })
     // 登录
     wx.login({
+      
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         var code = res.code;
@@ -80,5 +84,4 @@ App({
     userOpenId: null,
     baseUrl: 'http://localhost:3434'
   }
-
 })

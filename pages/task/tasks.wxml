@@ -11,6 +11,7 @@
   </view>
 </scroll-view>
 <!--订餐发单-->
+<scroll-view scroll-y="true" style="height:500;overflow:hidden;" class="scrollPage">
 <block wx:if="{{TabCur==0}}">
   <view class="content">
     <view class="left">
@@ -28,7 +29,7 @@
 </block>
 <!--带饭接单-->
 <block wx:if="{{TabCur==1}}">
-<view class="content">
+  <view class="content">
     <view class="left">
       <block wx:for="{{SendOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
@@ -79,7 +80,7 @@
   <view class="item" bindtap="jump" data-item="{{type}}" data-id="{{id}}">
     <image class="item-img" src="{{url}}" mode="widthFix"></image>
     <view class="solid-bottom text-lg padding bg-white">
-      <text class="text-black">{{title}}</text> 
+      <text class='cuIcon-titles text-blue'></text><text class="text-black">{{title}}</text> 
     </view>
     <view class="cu-list  menu-avatar">
       <view class="cu-item">
@@ -97,7 +98,7 @@
   <view class="item" bindtap="jump1" data-item="{{type}}" data-id="{{id}}">
     <image class="item-img" src="{{url}}" mode="widthFix"></image>
     <view class="solid-bottom text-lg padding bg-white">
-      <text class="text-black">{{title}}</text> 
+      <text class='cuIcon-titles text-blue'></text><text class="text-black">{{title}}</text> 
     </view>
     <view class="cu-list  menu-avatar">
       <view class="cu-item">
@@ -110,3 +111,4 @@
     </view>
   </view>
 </template>
+</scroll-view>

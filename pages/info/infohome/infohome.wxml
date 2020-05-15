@@ -1,5 +1,4 @@
-<!--pages/info/info.wxml-->
-
+<!--pages/info/info.wxml-->`
   <cu-custom bgColor="bg-gradual-blue" isBack="{{fasle}}">
     <view slot="backText">返回</view>
     <view slot="content">订单情况</view>
@@ -12,58 +11,60 @@
     </view>
   </view>
 </scroll-view>
-<!--我发布的-->
-<block wx:if="{{TabCur==0}}">
-  <!--文章类卡片-->
-  <view class="cu-card article no-card "  >
-    <!--类型是订单类型，序号是id-->
-    <view class="cu-item shadow solid-bottom" wx:for="{{Public}}" bindtap="jumpPub" data-item="{{item.type}}" data-id="{{item.id}}">
-      <view class="title">
-        <view class="text-cut">{{item.title}}</view>
-      </view>
-      <view class="content">
-        <image src= "{{item.url}}" mode="aspectFill"></image>
-        <view class="desc">
-          <view class="text-content"> {{item.words}}</view>
-          <view>
-            <view class="cu-tag bg-red light sm round">
-              <view wx:if="{{item.type==1}}">互助答疑</view>
-              <view wx:elif="{{item.type==2}}">跑腿送餐</view>
-              <view wx:elif="{{item.type==3}}">找人带饭</view>
-              <view wx:elif="{{item.type==4}}">闲置交易</view>
-              <view wx:else>其他</view>
+<scroll-view scroll-y class="scrollPage">
+  <!--我发布的-->
+  <block wx:if="{{TabCur==0}}">
+    <!--文章类卡片-->
+    <view class="cu-card article no-card ">
+      <!--类型是订单类型，序号是id-->
+      <view class="cu-item shadow solid-bottom" wx:for="{{Public}}" bindtap="jumpPub" data-item="{{item.type}}" data-id="{{item.id}}">
+        <view class="title">
+          <text class='cuIcon-titles text-blue'></text><text class="text-cut">{{item.title}}</text>
+        </view>
+        <view class="content">
+          <image src= "{{item.url}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.words}}</view>
+            <view>
+              <view class="cu-tag bg-red light sm round">
+                <view wx:if="{{item.type==1}}">互助答疑</view>
+                <view wx:elif="{{item.type==2}}">跑腿送餐</view>
+                <view wx:elif="{{item.type==3}}">找人带饭</view>
+                <view wx:elif="{{item.type==4}}">闲置交易</view>
+                <view wx:else>其他</view>
+              </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
-</block>
-<!--我接受的-->
-<block wx:if="{{TabCur==1}}">
-<!--文章类卡片-->
-  <view class="cu-card article no-card">
-    <!--类型是订单类型，序号是id-->
-    <view class="cu-item shadow " wx:for="{{Access}}" bindtap="jumpAce" data-item="{{item.type}}" data-id="{{item.id}}">
-      <view class="title">
-        <view class="text-cut">{{item.title}}</view>
-      </view>
-      <view class="content">
-        <image src= "{{item.url}}" mode="aspectFill"></image>
-        <view class="desc">
-          <view class="text-content"> {{item.words}}</view>
-          <view>
-            <view class="cu-tag bg-red light sm round">
-              <view wx:if="{{item.type==1}}">互助答疑</view>
-              <view wx:elif="{{item.type==2}}">跑腿送餐</view>
-              <view wx:elif="{{item.type==3}}">找人带饭</view>
-              <view wx:elif="{{item.type==4}}">闲置交易</view>
-              <view wx:else>其他</view>
+  </block>
+  <!--我接受的-->
+  <block wx:if="{{TabCur==1}}">
+    <!--文章类卡片-->
+    <view class="cu-card article no-card">
+      <!--类型是订单类型，序号是id-->
+      <view class="cu-item shadow " wx:for="{{Access}}" bindtap="jumpAce" data-item="{{item.type}}" data-id="{{item.id}}">
+        <view class="title">
+          <text class='cuIcon-titles text-blue'></text><text class="text-cut">{{item.title}}</text>
+        </view>
+        <view class="content">
+          <image src= "{{item.url}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.words}}</view>
+            <view>
+              <view class="cu-tag bg-red light sm round">
+                <view wx:if="{{item.type==1}}">互助答疑</view>
+                <view wx:elif="{{item.type==2}}">跑腿送餐</view>
+                <view wx:elif="{{item.type==3}}">找人带饭</view>
+                <view wx:elif="{{item.type==4}}">闲置交易</view>
+                <view wx:else>其他</view>
+              </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
-</block>
-<view class='cu-tabbar-height'></view>
+  </block>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>
