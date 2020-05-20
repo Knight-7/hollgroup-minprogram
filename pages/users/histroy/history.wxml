@@ -7,7 +7,7 @@
 <view class="cu-timeline" wx:for="{{orders}}" wx:key="time" >
   <view class="cu-time">{{item.time}}</view>
   <view class="cu-item cur cuIcon-noticefill">
-    <view class="content shadow-blur" wx:for="{{item.things}}" wx:key="id" bindtap="jump">
+    <view class="content shadow-blur" wx:for="{{item.things}}" bindtap="jump" data-id="{{item.orderId}}">
         <view class="cu-tag bg-{{item.istake?'red':'blue'}}">{{item.istake?"接单":"发单"}}</view>
         <view class="margin-top">{{item.thing}}</view>
     </view>

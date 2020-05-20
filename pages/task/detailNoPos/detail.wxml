@@ -15,7 +15,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情asfdawfewgsfagqewfqwfsf{{word}}
+      测试用商品详情asfdawfewgsfagqewfqwfsf{{detail}}
     </view>
   </view>
 </view>
@@ -41,7 +41,7 @@
 	<view class="title">
     <text class="cuIcon-phone lg"></text>
   </view>
-  <text class="text-black">{{way}}</text>
+  <text class="text-black">{{phone}}</text>
 </view>
 <!--按钮-->
 <view class="bg-white padding">

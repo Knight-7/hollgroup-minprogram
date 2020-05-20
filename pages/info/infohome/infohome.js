@@ -24,56 +24,35 @@ Component({
         4 闲置交易
      */
     //我发布的
-    Public:[
-      {
-        id:0,//编号
-        title:"求带南苑鸡排饭",//标题
-        words:"请在12:20将两份南苑鸡排饭送到图书馆二……",//内容
-        type: 2,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      },
-      {
-        id:1,//编号
-        title:"高数A1课后题",//标题
-        words:"求大佬帮忙解答高数题，事后必有",//内容
-        type: 1,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      }],
+    publishOrder: [],
     //我接收的订单
-    Access:[
-      {
-        id:0,//编号
-        title:"北苑酸菜鱼",//标题
-        words:"北苑酸菜鱼2份，要辣要大份，送到北8……",//内容
-        type: 2,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      },
-      {
-        id:1,//编号
-        title:"大物A1课后题",//标题
-        words:"物理第三章课后题，要过程，救救孩子……",//内容
-        type: 1,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      },
-      {
-        id:2,//编号
-        title:"北苑酸菜鱼",//标题
-        words:"北苑酸菜鱼2份，要辣要大份，送到北8……",//内容
-        type: 2,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      },
-      {
-        id:3,//编号
-        title:"大物A1课后题",//标题
-        words:"物理第三章课后题，要过程，救救孩子……",//内容
-        type: 1,
-        url: 'http://img1.imgtn.bdimg.com/it/u=1149327311,608611268&fm=11&gp=0.jpg'//图片地址
-      },
-      
-    ],
+    acceptOrder: []
   },
   //其中切换选项栏的TABBAR应该要加上刷新函数
   methods:{
+    fresh: function() {
+      let that = this;
+      wx.request({
+        url: app.globalData.baseUrl + '/order/getOrderInfo',
+        data: {
+          'id': app.globalData.userOpenId,
+        },
+        method: "GET",
+        header: {
+          'content-type': 'application/json'
+        },
+        success: (res) =>{
+          console.log(res.data)
+          that.setData({
+            publishOrder: res.data.publishOrder,
+            acceptOrder: res.data.acceptOrder
+          })
+        },
+        fail: function() {
+          console.log("获取失败");
+        }
+      })
+    },
     //页內上端TABBAR页面切换用
     tabSelect(e) {
       this.setData({
@@ -86,27 +65,23 @@ Component({
     // 页面跳转到发布的订单页面
     jumpPub(e){
       // 拿到点击的参数
-      let item=e.currentTarget.dataset.item;
       let id=e.currentTarget.dataset.id;
-      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      console.log('我传入的data-id+',id);
       // 把对象转为string
       let idstr=JSON.stringify(id);
-      let itemstr=JSON.stringify(item);
       wx.navigateTo({
-        url:'/pages/info/detailPub/detailPub?jsonStr='+idstr+"&strr="+itemstr,
+        url:'/pages/info/detailPub/detailPub?jsonStr='+idstr,
       })
     },
     // 页面跳转到发布的订单页面
     jumpAce(e){
       // 拿到点击的参数
-      let item=e.currentTarget.dataset.item;
       let id=e.currentTarget.dataset.id;
-      console.log('我传入的data-id+',id,'我传入的data-item',item);
+      console.log('我传入的data-id+',id);
       // 把对象转为string
       let idstr=JSON.stringify(id);
-      let itemstr=JSON.stringify(item);
       wx.navigateTo({
-        url:'/pages/info/detailAce/detailAce?jsonStr='+idstr+"&strr="+itemstr,
+        url:'/pages/info/detailAce/detailAce?jsonStr='+idstr,
       })
     }
   },
@@ -116,6 +91,7 @@ Component({
     attached:function(){
       console.log('Component-1 >> attached');
       console.log("info home页面初始化啦！");
+      this.fresh();
     }
   },
   pageLifetimes:{

@@ -15,28 +15,12 @@
 <block wx:if="{{TabCur==0}}">
   <view class="content">
     <view class="left">
-      <block wx:for="{{BringOrder}}"  >
+      <block wx:for="{{sendOrder}}"  >
         <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{BringOrder}}">
-        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
-      </block>
-    </view>
-  </view>
-  <view class='cu-tabbar-height'></view>
-</block>
-<!--带饭接单-->
-<block wx:if="{{TabCur==1}}">
-  <view class="content">
-    <view class="left">
-      <block wx:for="{{SendOrder}}">
-        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
-      </block>
-    </view>
-    <view class="right">
-      <block wx:for="{{SendOrder}}">
+      <block wx:for="{{sendOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
       </block>
     </view>
@@ -44,31 +28,47 @@
   <view class='cu-tabbar-height'></view>
 </block>
 <!--悬赏问答-->
-<block wx:if="{{TabCur==2}}">
+<block wx:if="{{TabCur==1}}">
   <view class="content">
     <view class="left">
-      <block wx:for="{{QandAOrder}}">
-        <template is="item1" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      <block wx:for="{{questionOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{QandAOrder}}">
-        <template is="item1" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      <block wx:for="{{questionOrder}}">
+        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
       </block>
     </view>
   </view>
   <view class='cu-tabbar-height'></view>
 </block>
 <!--二手交易-->
+<block wx:if="{{TabCur==2}}">
+  <view class="content">
+    <view class="left">
+      <block wx:for="{{marketOrder}}">
+        <template is="item1" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{marketOrder}}">
+        <template is="item1" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      </block>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</block>
+<!--其他悬赏-->
 <block wx:if="{{TabCur==3}}">
   <view class="content">
     <view class="left">
-      <block wx:for="{{MarketOrder}}">
+      <block wx:for="{{otherOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{MarketOrder}}">
+      <block wx:for="{{otherOrder}}">
         <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
       </block>
     </view>
@@ -77,7 +77,7 @@
 </block>
 <!--下面是一个模块 -->
 <template name="item">
-  <view class="item" bindtap="jump" data-item="{{type}}" data-id="{{id}}">
+  <view class="item" bindtap="jump" data-id="{{orderId}}">
     <image class="item-img" src="{{url}}" mode="widthFix"></image>
     <view class="solid-bottom text-lg padding bg-white">
       <text class='cuIcon-titles text-blue'></text><text class="text-black">{{title}}</text> 
@@ -95,7 +95,7 @@
 </template>
 <!--下面是一个模块 -->
 <template name="item1">
-  <view class="item" bindtap="jump1" data-item="{{type}}" data-id="{{id}}">
+  <view class="item" bindtap="jump1" data-id="{{orderId}}">
     <image class="item-img" src="{{url}}" mode="widthFix"></image>
     <view class="solid-bottom text-lg padding bg-white">
       <text class='cuIcon-titles text-blue'></text><text class="text-black">{{title}}</text> 

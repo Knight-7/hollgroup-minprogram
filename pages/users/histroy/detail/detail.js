@@ -38,7 +38,7 @@ Page({
     that.setData({
       orderId:id
     })
-    console.log("传递过来的参数序号是",this.data.comeid);
+    console.log("传递过来的参数序号是",this.data.orderId);
 
     //TODO:根据传递过来的订单编号获取相应的订单信息，并赋值到DATA中
     wx.request({

@@ -2,9 +2,8 @@
 App({
   
   onLaunch: function () {
-    /*
     let that = this;
-    if (wx.cloud) {
+    /*if (wx.cloud) {
       wx.cloud.init({
         traceUser: true
       })

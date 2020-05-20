@@ -28,18 +28,16 @@ Page({
    */
   onLoad: function (options) {
     let that=this
-    let item=JSON.parse(options.strr)
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      orderType:item,
       orderId:id
     })
-    console.log("传递过来的参数类型是",this.data.cometype,"序号是",this.data.comeid);
+    console.log("序号是",this.data.orderId);
     //获取订单信息
     wx.request({
       url: app.globalData.baseUrl + '/order/getDealById',
       data: {
-        'orderId': 10004,
+        'orderId': that.data.orderId,
       },
       header: {
         'content-type': 'application/json'
@@ -75,7 +73,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/order/start',
       data: {
-        'orderId': 10004,
+        'orderId': that.data.orderId,
         'openId': app.globalData.userOpenId
       },
       header: {
