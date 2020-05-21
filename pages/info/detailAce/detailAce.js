@@ -6,6 +6,7 @@ Page({
    */
   data: {
     QueryBean:"",
+    loadModal: false,
     title:"测试用标题",
     detail:"假装这里有份商品说明吧！",
     // 存放图片的列表
@@ -34,7 +35,8 @@ Page({
     let that=this
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      orderId:id
+      orderId:id,
+      loadModal: true,
     })
     console.log("序号是",this.data.orderId);
     wx.request({
@@ -48,6 +50,7 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
+          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,
@@ -88,16 +91,43 @@ Page({
   },
   //按钮事件
   finishyes:function(e){
-    //成功发布提示消息
-    wx.showToast({
-      title: '操作成功',
-      duration: 3000,
-    })
-    setTimeout(function(){
-      //返回上一页
-      wx.navigateBack({
-        delta: 1
-      })
-    }, 3000);   
+    let that = this;
+    wx.request({
+      url: app.globalData.baseUrl + '/order/finish',
+      data: {
+        'orderId': that.data.orderId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) =>{
+        console.log(res.data.msg)
+        //成功提示消息
+        wx.showToast({
+          title: '操作成功',
+          duration: 3000,
+        })
+        setTimeout(function(){
+          //返回上一页
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000);
+      },
+      fail: function() {
+        console.log("操作失败");
+        wx.showToast({
+          title: '操作失败',
+          cion:'none',
+          duration: 3000,
+        })
+        setTimeout(function(){
+          //返回上一页
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000);
+      }
+    })   
   }
 })

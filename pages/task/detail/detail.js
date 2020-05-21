@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadModal: false,
     QueryBean:"",
     title:"测试用标题",
     isfav:false,//是否已收藏，true表示是
@@ -30,7 +31,8 @@ Page({
     let that=this
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      orderId:id
+      orderId:id,
+      loadModal: true
     })
     console.log("序号是",this.data.orderId);
     //获取订单信息
@@ -45,6 +47,7 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
+          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,
@@ -80,22 +83,36 @@ Page({
         'content-type': 'application/json'
       },
       success: (res)=>{
-        console.log(res);
+        console.log("接单成功");
+        console.log(res.data.msg);
+        //成功提示消息
+        wx.showToast({
+          title: '接受成功',
+          duration: 3000,
+        })
+        setTimeout(function(){
+          //返回上一页
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000);
       },
       fail: function() {
-        console.log("提交失败");
+        console.log("接单失败");
+        //失败提示消息
+        wx.showToast({
+          titshowToastle: '接收失败',
+          icon:'none',
+          duration: 3000,
+        })
+        setTimeout(function(){
+          //返回上一页
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 3000);
       }
     })
-    //成功发布提示消息
-    wx.showToast({
-      title: '接受成功',
-      duration: 3000,
-    })
-    setTimeout(function(){
-      //返回上一页
-      wx.navigateBack({
-        delta: 1
-      })
-    }, 3000);   
+       
   }
 })

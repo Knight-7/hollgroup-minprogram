@@ -5,6 +5,7 @@ Component({
   },
   data: {
     TabCur: 0,
+    loadModal: false,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     //导航栏标题
@@ -44,6 +45,7 @@ Component({
         success: (res) =>{
           console.log(res.data)
           that.setData({
+            loadModal: false,
             publishOrder: res.data.publishOrder,
             acceptOrder: res.data.acceptOrder
           })
@@ -56,9 +58,11 @@ Component({
     //页內上端TABBAR页面切换用
     tabSelect(e) {
       this.setData({
+        loadModal: true,
         TabCur: e.currentTarget.dataset.id,
-        scrollLeft: (e.currentTarget.dataset.id-1)*60
+        scrollLeft: (e.currentTarget.dataset.id-1)*60,
       })
+      this.fresh();
       //刷新数据函数
       console.log("请在methods的tabSelect函数里加上刷新数据的函数")
     },
@@ -91,6 +95,9 @@ Component({
     attached:function(){
       console.log('Component-1 >> attached');
       console.log("info home页面初始化啦！");
+      this.setData({
+        loadModal: true,
+      })
       this.fresh();
     }
   },
@@ -98,6 +105,10 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> info home  Show');
+      this.setData({
+        loadModal: true,
+      })
+      this.fresh();
     },
   }
 })

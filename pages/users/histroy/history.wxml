@@ -3,6 +3,12 @@
   <view slot="backText">返回</view>
   <view slot="content">历史记录</view>
 </cu-custom>
+<view wx:if="{{orders.length===0}}">
+  <view class="padding-lr bg-white margin-top">
+    <view class="padding">目前没有历史记录哦！</view>
+  </view>
+</view>
+<block wx:else>
 <!--时间轴订单-->
 <view class="cu-timeline" wx:for="{{orders}}" wx:key="time" >
   <view class="cu-time">{{item.time}}</view>
@@ -13,3 +19,9 @@
     </view>
   </view>
 </view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <text class="cuIcon-creative lg"></text>
+  <view class='gray-text'>信息更新中</view>
+</view>
+</block>

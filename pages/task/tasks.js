@@ -7,6 +7,7 @@ Component({
   data: {
     TabCur: 0,
     scrollLeft:0,
+    loadModal: false,
     //导航栏标题
     NavGroup:[
       {
@@ -43,6 +44,7 @@ Component({
         },
         method: "GET",
         success: (res)=>{
+          that.setData({loadModal: false});
           console.log(res.data)
           switch (that.data.TabCur) {
             case 0:
@@ -68,6 +70,7 @@ Component({
     },
     tabSelect(e) {
       this.setData({
+        loadModal: true,
         TabCur: e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id-1)*60
       })
@@ -102,6 +105,9 @@ Component({
     // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
     // 简单来说就是tabbar切换的时候调用它
     attached:function(){
+      this.setData({
+        loadModal: true
+      });
       this.fresh(0);
     }
   },
@@ -109,7 +115,15 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> Show');
+      this.setData({
+        loadModal: true,
+      });
       this.fresh(this.data.TabCur);
+      setTimeout(()=> {
+        this.setData({
+          loadModal: false
+        })
+      }, 1000)
     },
   }
 })
