@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadModal: false,
     QueryBean:"",
     title:"测试用标题",
     isfav:false,//是否已收藏，true表示是
@@ -30,7 +31,8 @@ Page({
     let that=this
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      orderId:id
+      orderId:id,
+      loadModal: true
     })
     console.log("序号是",this.data.orderId);
     //获取订单信息
@@ -45,6 +47,7 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
+          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,
@@ -80,10 +83,11 @@ Page({
         'content-type': 'application/json'
       },
       success: (res)=>{
-        console.log(res);
+        console.log("接单成功");
+        console.log(res.data.msg);
       },
       fail: function() {
-        console.log("提交失败");
+        console.log("接单成功");
       }
     })
     //成功发布提示消息

@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadModal: false,
     QueryBean:"",
     title:"测试用标题",
     isfav:false,//是否已收藏，true表示是
@@ -28,7 +29,10 @@ Page({
   onLoad: function (options) {
     let that=this
     let id=JSON.parse(options.jsonStr)
-    this.data.orderId=id
+    that.setData({
+      orderId: id,
+      loadModal: true,
+    })
     console.log("序号是",this.data.orderId);
     wx.request({
       url: app.globalData.baseUrl + '/order/getDealById',
@@ -41,6 +45,7 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
+          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,

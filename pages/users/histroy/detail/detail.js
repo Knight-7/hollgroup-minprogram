@@ -6,6 +6,7 @@ Page({
    */
   data: {
     QueryBean:"",
+    loadModal: false,
     title:"测试用标题",
     detail:"假装这里有份商品说明吧！",
     // 存放图片的列表
@@ -36,7 +37,8 @@ Page({
     let that=this
     let id=JSON.parse(options.jsonStr)
     that.setData({
-      orderId:id
+      orderId:id,
+      loadModal: true,
     })
     console.log("传递过来的参数序号是",this.data.orderId);
 
@@ -52,6 +54,7 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
+          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,

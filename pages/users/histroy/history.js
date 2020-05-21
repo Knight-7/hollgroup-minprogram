@@ -7,9 +7,13 @@ Page({
    */
   data: {
     // 订单数组
-    orders:[]
+    orders:[],
+    loadModal: false,
   },
   onLoad: function() {
+    this.setData({
+      loadModal: true,
+    })
     this.getHistoryDeal();
   },
   getHistoryDeal: function() {
@@ -23,7 +27,10 @@ Page({
         'content-type': 'application/json'
       },
       success: (res)=> {
-        that.setData({orders: res.data})
+        that.setData({
+          orders: res.data,
+          loadModal: false
+        })
       },
       fail: function() {
         console.log("获取数据失败");
