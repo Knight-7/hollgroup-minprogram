@@ -76,7 +76,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/sale/publish',
       data: {
-        "openid": app.globalData.userOpenId,
+        "openId": app.globalData.userOpenId,
         "title": that.data.title,   // 问题标题
         "detail":that.data.describe,// 订单描述
         "money": that.data.price,  // 酬劳价格
