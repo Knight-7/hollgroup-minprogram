@@ -107,34 +107,22 @@ Page({
       },
       success: (res)=>{
         console.log("提交成功");
-        //成功发布提示消息
-        wx.showToast({
-          title: '发布成功',
-          duration: 3000,
-        })
-        setTimeout(function(){
-          //返回上一页
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 3000);   
       },
       fail: function() {
         console.log("提交失败");
-        //失败提示消息
-        wx.showToast({
-          title: '发布失败',
-          icon:'none',
-          duration: 3000,
-        })
-        setTimeout(function(){
-          //返回上一页
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 3000);
       }
     })
+    //成功发布提示消息
+    wx.showToast({
+      title: '发布成功',
+      duration: 3000,
+    })
+    setTimeout(function(){
+      //返回上一页
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 3000);   
   },
   onLoad: function() {
     console.log(app.globalData.userOpenId)

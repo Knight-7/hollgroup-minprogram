@@ -71,6 +71,29 @@ Page({
   },
   //按钮事件
   finish:function(e){
+    let that = this;
+    console.log(that.data)
+    wx.request({
+      url: app.globalData.baseUrl + '/sale/publish',
+      data: {
+        "openid": app.globalData.userOpenId,
+        "title": that.data.title,   // 问题标题
+        "detail":that.data.describe,// 订单描述
+        "money": that.data.price,  // 酬劳价格
+        "phone": that.data.tel,//手机号,
+        "picture": '1'
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+      success: (res)=>{
+        console.log("提交成功");
+      },
+      fail: function() {
+        console.log("提交失败");
+      }
+    })
+
     //成功发布提示消息
     wx.showToast({
       title: '发布成功',
@@ -83,4 +106,5 @@ Page({
       })
     }, 3000);   
   }
+
 })
