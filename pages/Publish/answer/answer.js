@@ -1,4 +1,5 @@
 // pages/Publish/answer/answer.js
+var app = getApp()
 Page({
 
   /**
@@ -65,24 +66,36 @@ Page({
   finish:function(e){
     //成功发布提示消息
     let that = this;
-    console.log(that.data)
     wx.request({
       url: app.globalData.baseUrl + '/order/submit',
       data: {
         "openid": app.globalData.userOpenId,
         "title": that.data.title,   // 问题标题
         "price": that.data.price,  // 酬劳价格
-        "type": '1',
+        "type": '2',
         "detail": that.data.describe,// 订单描述
-        "location": that.data.address,//地址
+        "location": null,//地址
         "phone": that.data.tel,//手机号,
-        "picture": '1'
       },
       header: {
         'content-type': 'application/json',
       },
       success: (res)=>{
         console.log("提交成功");
+        for (var i = 0; i < this.data.imgList.length; i++) {
+          console.log(this.data.imgList[i]);
+          wx.uploadFile({
+              filePath: this.data.imgList[i],
+              name: 'file',
+              formData: {
+                "orderId": res.data.orderId,
+              },
+              url: 'http://localhost:3434/image/upload',
+              success: (res)=> {
+                console.log(res.data)
+              }
+            })
+        }
       },
       fail: function() {
         console.log("提交失败");

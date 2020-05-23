@@ -46,7 +46,8 @@ Page({
           detail: res.data.detail,
           price: res.data.price,
           phone: res.data.phone,
-          orderType: res.data.orderType
+          orderType: res.data.orderType,
+          imgList: res.data.imgList
         });
         console.log(that.data);
       },

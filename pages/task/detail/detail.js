@@ -50,7 +50,8 @@ Page({
           price: res.data.price,
           location: res.data.location,
           phone: res.data.phone,
-          orderType: res.data.orderType
+          orderType: res.data.orderType,
+          imgList: res.data.imgList
         });
         console.log(that.data);
       },
