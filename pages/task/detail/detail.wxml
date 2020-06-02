@@ -71,8 +71,4 @@
     </view>
   </view>
 </view>  
-<view class='cu-load load-modal' wx:if="{{loadModal}}">
-  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
-  <text class="cuIcon-creative lg"></text>
-  <view class='gray-text'>信息更新中</view>
-</view>
+

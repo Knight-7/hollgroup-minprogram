@@ -7,7 +7,6 @@ Component({
   data: {
     TabCur: 0,
     scrollLeft:0,
-    loadModal: false,
     //导航栏标题
     NavGroup:[
       {
@@ -34,43 +33,57 @@ Component({
   methods:{
     fresh(type) {
       let that = this;
-      wx.request({
-        url: app.globalData.baseUrl + '/order/freshByType',
-        header: {
-          'content-type': 'application/json'
-        },
-        data: {
-          'type': type
-        },
-        method: "GET",
-        success: (res)=>{
-          that.setData({loadModal: false});
-          console.log(res.data)
-          switch (that.data.TabCur) {
-            case 0:
-              that.setData({sendOrder: res.data.sendOrder});
-              break;
-            case 1:
-              that.setData({questionOrder: res.data.questionOrder});
-              break;
-            case 2:
-              that.setData({marketOrder: res.data.marketOrder})
-              break;
-            case 3:
-              that.setData({otherOrder: res.data.otherOrder});
-              break;
-            default:
-              break;
+      
+      if(type==2){
+        wx.request({
+          url: app.globalData.baseUrl + '/sale/findAll',
+          header: {
+            'content-type': 'application/json'
+          },
+          method: "GET",
+          success: (res)=>{
+            console.log(res.data)
+            that.setData({marketOrder: res.data.marketOrder})
+          },
+          fail: function() {
+            console.log("刷新失败")
           }
-        },
-        fail: function() {
-          console.log("刷新失败")
-        }
-      })
+        })
+      }
+      else{
+        wx.request({
+          url: app.globalData.baseUrl + '/order/freshByType',
+          header: {
+            'content-type': 'application/json'
+          },
+          data: {
+            'type': type
+          },
+          method: "GET",
+          success: (res)=>{
+            console.log(res.data)
+            switch (that.data.TabCur) {
+              case 0:
+                that.setData({sendOrder: res.data.sendOrder});
+                break;
+              case 1:
+                that.setData({questionOrder: res.data.questionOrder});
+                break;
+              case 3:
+                that.setData({otherOrder: res.data.otherOrder});
+                break;
+              default:
+                break;
+            }
+          },
+          fail: function() {
+            console.log("刷新失败")
+          }
+        })
+      }
     },
     tabSelect(e) {
       this.setData({
-        loadModal: true,
         TabCur: e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id-1)*60
       })
@@ -91,7 +104,7 @@ Component({
     // 页面跳转2
     jump1(e){
       // 拿到点击的参数
-      let orderId=e.currentTarget.dataset.orderId;
+      let orderId=e.currentTarget.dataset.id;
       console.log('我传入的data-id+', orderId);
       console.log(e.currentTarget.dataset);
       // 把对象转为JSON
@@ -105,9 +118,6 @@ Component({
     // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
     // 简单来说就是tabbar切换的时候调用它
     attached:function(){
-      this.setData({
-        loadModal: true
-      });
       this.fresh(0);
     }
   },
@@ -115,15 +125,7 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> Show');
-      this.setData({
-        loadModal: true,
-      });
       this.fresh(this.data.TabCur);
-      setTimeout(()=> {
-        this.setData({
-          loadModal: false
-        })
-      }, 1000)
     },
   }
 })

@@ -19,7 +19,9 @@
     "pages/Publish/findfood/findfood",
     "pages/info/detailAce/detailAce",
     "pages/info/detailPub/detailPub",
-    "pages/users/changeinfo/changeinfo"
+    "pages/users/changeinfo/changeinfo",
+    "pages/info/detailGoods/detailGoods",
+    "pages/info/changeGoods/changeGoods"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,5 +36,4 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
-  
 }

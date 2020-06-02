@@ -39,7 +39,7 @@
       </view>
     </view>
   </block>
-  <!--我接受的-->
+  <!--我发布的二手物品-->
   <block wx:if="{{TabCur==1}}">
     <!--文章类卡片-->
     <view class="cu-card article no-card">
@@ -66,10 +66,23 @@
       </view>
     </view>
   </block>
+  <!--我的二手订单-->
+  <block wx:if="{{TabCur==2}}">
+    <!--文章类卡片-->
+    <view class="cu-card article no-card">
+      <!--类型是订单类型，序号是id-->
+      <view class="cu-item shadow " wx:for="{{saleOrder}}" bindtap="jumpGoods" data-id="{{item.openId}}">
+        <view class="title">
+          <text class='cuIcon-titles text-blue'></text><text class="text-cut">{{item.title}}</text>
+        </view>
+        <view class="content">
+          <image src= "{{item.url}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.detail}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
   <view class='cu-tabbar-height'></view>
 </scroll-view>
-<view class='cu-load load-modal' wx:if="{{loadModal}}">
-  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
-  <text class="cuIcon-creative lg"></text>
-  <view class='gray-text'>信息更新中</view>
-</view>

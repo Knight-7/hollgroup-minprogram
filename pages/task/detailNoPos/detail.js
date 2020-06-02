@@ -1,10 +1,10 @@
 // pages/task/detail/detail.js
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    loadModal: false,
     QueryBean:"",
     title:"测试用标题",
     isfav:false,//是否已收藏，true表示是
@@ -29,15 +29,12 @@ Page({
   onLoad: function (options) {
     let that=this
     let id=JSON.parse(options.jsonStr)
-    that.setData({
-      orderId: id,
-      loadModal: true,
-    })
+    this.data.orderId=id
     console.log("序号是",this.data.orderId);
     wx.request({
-      url: app.globalData.baseUrl + '/order/getDealById',
+      url: app.globalData.baseUrl + '/sale/findSaleByOrderId',
       data: {
-        'orderId': that.data.orderId,
+        'id': that.data.orderId,
       },
       header: {
         'content-type': 'application/json'
@@ -45,12 +42,12 @@ Page({
       method: "GET",
       success: (res)=> {
         that.setData({
-          loadModal: false,
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,
           phone: res.data.phone,
-          orderType: res.data.orderType
+          orderType: res.data.orderType,
+          imgList: res.data.imgList
         });
         console.log(that.data);
       },
@@ -68,6 +65,7 @@ Page({
   },
   //按钮事件
   finish:function(e){
+    let that = this;
     //成功发布提示消息
     wx.showToast({
       title: '接受成功',

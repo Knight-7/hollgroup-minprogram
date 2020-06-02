@@ -22,7 +22,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情{{detail}}
+      测试用商品详情{{detai}}
     </view>
   </view>
 </view>
@@ -30,7 +30,7 @@
 <view class="cu-form-group">
 		<view class="grid col-3 grid-square flex-sub">
 			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
 				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
 				</view>
 			</view>
@@ -43,33 +43,12 @@
   </view>
   <text class="text-price">{{price}}元</text>
 </view>
-<!--订单发布者-->
-<view class="cu-form-group ">
-	<view class="title">
-    <text class="cuIcon-people lg">发布用户</text>
-  </view>
-  <text class="text-black">{{fromName}}</text>
-</view>
 <!--联系方式-->
 <view class="cu-form-group ">
 	<view class="title">
     <text class="cuIcon-phone lg">联系方式</text>
   </view>
   <text class="text-black">{{phone}}</text>
-</view>
-<!--订单发布时间-->
-<view class="cu-form-group ">
-	<view class="title">
-    <text class="cuIcon-time lg">发布时间</text>
-  </view>
-  <text class="text-black">{{publishTime}}</text>
-</view>
-<!--订单接受时间-->
-<view class="cu-form-group ">
-	<view class="title">
-    <text class="cuIcon-check lg">接单时间</text>
-  </view>
-  <text class="text-black">{{startTime}}</text>
 </view>
 <!--地点方式-->
 <view class="cu-form-group" wx:if="{{cometype!=1}}">
@@ -81,7 +60,8 @@
 <!--按钮-->
 <view class="bg-white padding">
   <view class="flex solid-bottom padding justify-between">
-    <view class="basis-sm cu-btn bg-olive round lg shadow" bindtap="finishstop">中止订单</view>
-    <view class="basis-sm cu-btn bg-blue round lg shadow" bindtap="finishyes">完成订单</view>
+    <view class="basis-sm cu-btn bg-olive round lg shadow" bindtap="finishstop">下架商品</view>
+    <view class="basis-sm cu-btn bg-blue round lg shadow" bindtap="changeinfo" data-id="{{orderId}}">修改信息</view>
   </view>
 </view>  
+

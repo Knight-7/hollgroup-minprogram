@@ -5,7 +5,6 @@ Component({
   },
   data: {
     TabCur: 0,
-    loadModal: false,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     //导航栏标题
@@ -15,6 +14,9 @@ Component({
       },
       {
         Name:"接受中的订单"
+      },
+      {
+        Name:"我发布的物品"
       }
     ],
     /*
@@ -27,7 +29,9 @@ Component({
     //我发布的
     publishOrder: [],
     //我接收的订单
-    acceptOrder: []
+    acceptOrder: [],
+    //我发布的二手商品
+    saleOrder:[]
   },
   //其中切换选项栏的TABBAR应该要加上刷新函数
   methods:{
@@ -45,9 +49,27 @@ Component({
         success: (res) =>{
           console.log(res.data)
           that.setData({
-            loadModal: false,
             publishOrder: res.data.publishOrder,
-            acceptOrder: res.data.acceptOrder
+            acceptOrder: res.data.acceptOrder,
+          })
+        },
+        fail: function() {
+          console.log("获取失败");
+        }
+      }),
+      wx.request({
+        url: app.globalData.baseUrl + '/sale/findSaleByOpenId',
+        data: {
+          'openId': app.globalData.userOpenId,
+        },
+        method: "GET",
+        header: {
+          'content-type': 'application/json'
+        },
+        success: (res) =>{
+          console.log(res.data)
+          that.setData({
+            saleOrder: res.data
           })
         },
         fail: function() {
@@ -58,11 +80,9 @@ Component({
     //页內上端TABBAR页面切换用
     tabSelect(e) {
       this.setData({
-        loadModal: true,
         TabCur: e.currentTarget.dataset.id,
-        scrollLeft: (e.currentTarget.dataset.id-1)*60,
+        scrollLeft: (e.currentTarget.dataset.id-1)*60
       })
-      this.fresh();
       //刷新数据函数
       console.log("请在methods的tabSelect函数里加上刷新数据的函数")
     },
@@ -77,7 +97,7 @@ Component({
         url:'/pages/info/detailPub/detailPub?jsonStr='+idstr,
       })
     },
-    // 页面跳转到发布的订单页面
+    // 页面跳转到接受的订单页面
     jumpAce(e){
       // 拿到点击的参数
       let id=e.currentTarget.dataset.id;
@@ -87,6 +107,17 @@ Component({
       wx.navigateTo({
         url:'/pages/info/detailAce/detailAce?jsonStr='+idstr,
       })
+    },
+    // 页面跳转到二手交易的订单页面
+    jumpGoods(e){
+      // 拿到点击的参数
+      let id=e.currentTarget.dataset.id;
+      console.log('我传入的data-id+',id);
+      // 把对象转为string
+      let idstr=JSON.stringify(id);
+      wx.navigateTo({
+        url:'/pages/info/detailGoods/detailGoods?jsonStr='+idstr,
+      })
     }
   },
   lifetimes:{
@@ -95,9 +126,6 @@ Component({
     attached:function(){
       console.log('Component-1 >> attached');
       console.log("info home页面初始化啦！");
-      this.setData({
-        loadModal: true,
-      })
       this.fresh();
     }
   },
@@ -105,10 +133,6 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> info home  Show');
-      this.setData({
-        loadModal: true,
-      })
-      this.fresh();
     },
   }
 })

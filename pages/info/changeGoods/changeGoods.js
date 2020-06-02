@@ -1,5 +1,5 @@
-// pages/Publish/answer/answer.js
-var app = getApp()
+// pages/Publish/market/market.js
+const app = getApp();
 Page({
 
   /**
@@ -7,10 +7,20 @@ Page({
    */
   data: {
     imgList: [],// 存图片
-    title:"",   // 问题标题
-    price:0.0,  // 酬劳价格
-    describe:"",// 问题描述
+    title:"",   // 商品标题
+    price:0.0,  // 商品价格  
+    describe:"",// 商品描述
+    address:"",  // 地址
     tel:"",//手机号
+    orderId:""//订单编号，用于保存修改信息
+  },
+  onLoad: function (options) {
+    let that=this
+    let id=JSON.parse(options.jsonStr)
+    that.setData({
+      orderId:id
+    })
+    console.log("序号是",this.data.orderId);
   },
   // 标题填写
   titleinput(e){
@@ -18,22 +28,28 @@ Page({
       title:e.detail.value
     })
   },
-  // 酬劳填写
+  // 价格填写
   priceinput(e){
     this.setData({
       price:e.detail.value
+    })
+  },
+  // 地址填写
+  addressinput(e){
+    this.setData({
+      address:e.detail.value
+    })
+  },
+  // 商品详情
+  describeinput(e){
+    this.setData({
+      describe:e.detail.value
     })
   },
   // 电话填写
   telinput(e){
     this.setData({
       tel:e.detail.value
-    })
-  },
-  // 问题详情
-  describeinput(e){
-    this.setData({
-      describe:e.detail.value
     })
   },
   // 图片选择
@@ -64,43 +80,30 @@ Page({
   },
   //按钮事件
   finish:function(e){
-    //成功发布提示消息
     let that = this;
+    console.log(that.data)
     wx.request({
-      url: app.globalData.baseUrl + '/order/submit',
+      url: app.globalData.baseUrl + '/sale/publish',
       data: {
-        "openid": app.globalData.userOpenId,
+        "openId": app.globalData.userOpenId,
         "title": that.data.title,   // 问题标题
-        "price": that.data.price,  // 酬劳价格
-        "type": '2',
-        "detail": that.data.describe,// 订单描述
-        "location": null,//地址
+        "detail":that.data.describe,// 订单描述
+        "money": that.data.price,  // 酬劳价格
         "phone": that.data.tel,//手机号,
+        "picture": '1'
       },
       header: {
         'content-type': 'application/json',
       },
       success: (res)=>{
         console.log("提交成功");
-        for (var i = 0; i < this.data.imgList.length; i++) {
-          console.log(this.data.imgList[i]);
-          wx.uploadFile({
-              filePath: this.data.imgList[i],
-              name: 'file',
-              formData: {
-                "orderId": res.data.orderId,
-              },
-              url: 'http://localhost:3434/image/upload',
-              success: (res)=> {
-                console.log(res.data)
-              }
-            })
-        }
       },
       fail: function() {
         console.log("提交失败");
       }
     })
+
+    //成功发布提示消息
     wx.showToast({
       title: '发布成功',
       duration: 3000,
@@ -112,4 +115,5 @@ Page({
       })
     }, 3000);   
   }
+
 })
