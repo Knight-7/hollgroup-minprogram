@@ -71,7 +71,7 @@
     <!--文章类卡片-->
     <view class="cu-card article no-card">
       <!--类型是订单类型，序号是id-->
-      <view class="cu-item shadow " wx:for="{{saleOrder}}" bindtap="jumpGoods" data-id="{{item.openId}}">
+      <view class="cu-item shadow " wx:for="{{saleOrder}}" bindtap="jumpGoods" data-id="{{item.id}}">
         <view class="title">
           <text class='cuIcon-titles text-blue'></text><text class="text-cut">{{item.title}}</text>
         </view>

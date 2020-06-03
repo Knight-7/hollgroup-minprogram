@@ -83,9 +83,9 @@ Page({
     let that = this;
     console.log(that.data)
     wx.request({
-      url: app.globalData.baseUrl + '/sale/publish',
+      url: app.globalData.baseUrl + '/sale/update',
       data: {
-        "openId": app.globalData.userOpenId,
+        "id": that.data.orderId,  //TODO:输入orderId
         "title": that.data.title,   // 问题标题
         "detail":that.data.describe,// 订单描述
         "money": that.data.price,  // 酬劳价格

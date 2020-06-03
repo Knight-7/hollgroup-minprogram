@@ -33,11 +33,12 @@ Page({
       orderId:id
     })
     console.log("序号是",this.data.orderId);
+    console.log(this.data);
     //后台获取订单的详细信息
     wx.request({
-      url: app.globalData.baseUrl + '/order/getDealById',
+      url: app.globalData.baseUrl + '/sale/findSaleByOrderId',
       data: {
-        'orderId': that.data.orderId,
+        'id': that.data.orderId,
       },
       header: {
         'content-type': 'application/json'
@@ -48,8 +49,8 @@ Page({
           title: res.data.title,
           detail: res.data.detail,
           price: res.data.price,
-          location: res.data.location,
           phone: res.data.phone,
+          orderType: res.data.orderType,
           imgList: res.data.imgList
         });
         console.log(that.data);
@@ -69,6 +70,24 @@ Page({
   //按钮事件
   finishstop:function(e){
     //成功发布提示消息
+    let that=this
+    wx.request({
+      url: app.globalData.baseUrl + '/sale/cancel',
+      data: {
+        'id': that.data.orderId,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: (res)=> {
+        console.log("下架成功");
+      },
+      fail: function() {
+        console.log("下架失败");
+      }
+    }),
+
     wx.showToast({
       title: '订单已中止',
       duration: 3000,
