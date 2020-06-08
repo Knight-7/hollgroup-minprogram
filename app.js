@@ -81,7 +81,7 @@ App({
   globalData: {
     userInfo: null,
     userOpenId: null,
-    baseUrl: 'http://localhost:3434'
-    //baseUrl: 'http://182.92.105.48:3434'
+    //baseUrl: 'http://localhost:3434'
+    baseUrl: 'https://knight.ren'
   }
 })
