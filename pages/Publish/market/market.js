@@ -88,6 +88,20 @@ Page({
       },
       success: (res)=>{
         console.log("提交成功");
+        for (var i = 0; i < this.data.imgList.length; i++) {
+          console.log(this.data.imgList[i]);
+          wx.uploadFile({
+              filePath: this.data.imgList[i],
+              name: 'file',
+              formData: {
+                "orderId": res.data.orderId,
+              },
+              url: 'http://localhost:3434/sale/upload',
+              success: (res)=> {
+                console.log(res.data)
+              }
+            })
+        }
       },
       fail: function() {
         console.log("提交失败");
