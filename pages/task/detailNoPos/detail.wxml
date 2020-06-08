@@ -15,7 +15,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情asfdawfewgsfagqewfqwfsf{{detail}}
+      {{detail}}
     </view>
   </view>
 </view>
