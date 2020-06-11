@@ -96,7 +96,7 @@ Page({
               formData: {
                 "orderId": res.data.orderId,
               },
-              url: 'http://localhost:3434/sale/upload',
+              url: app.globalData.baseUrl + '/sale/upload',
               success: (res)=> {
                 console.log(res.data)
               }
