@@ -20,8 +20,26 @@ Page({
       tel:e.detail.value
     })
   },
+  //弹出对话框
+  showModal:function(e){
+    this.setData({
+      modalName: "Modal"
+    })
+  },
+  //隐藏对话框
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   //按钮事件
   finish:function(e){
+    let that = this;
+    if(that.data.address==''||that.data.tel=='')
+    {
+      this.showModal();
+      return false;
+    }
     //成功发布提示消息
     wx.showToast({
       title: '修改成功',

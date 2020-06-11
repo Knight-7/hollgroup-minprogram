@@ -1,7 +1,7 @@
 <!--pages/Publish/food/food.wxml-->
 <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">跑腿送餐</view>
+  <view slot="content">其他悬赏</view>
 </cu-custom>
 <!--填写表单-->
 <form>
@@ -53,4 +53,19 @@
 <!--按钮-->
 <view class="padding flex flex-direction">
   <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="finish">发布订单</button>
+</view>
+
+<!--提示窗口-->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      有信息未填写
+    </view>
+  </view>
 </view>

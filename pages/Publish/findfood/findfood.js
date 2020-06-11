@@ -163,9 +163,27 @@ MultiColumnChange(e) {
       tel:e.detail.value
     })
   },
+  //弹出对话框
+  showModal:function(e){
+    this.setData({
+      modalName: "Modal"
+    })
+  },
+  //隐藏对话框
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   //按钮事件
   finish:function(e){
     let that = this;
+    if(that.data.describe==''||that.data.price==''||that.data.title==''||that.data.price==0.0||that.data.tel==''
+    ||that.data.address=='')
+    {
+      this.showModal();
+      return false;
+    }
     console.log(that.data)
     wx.request({
       url: app.globalData.baseUrl + '/order/submit',

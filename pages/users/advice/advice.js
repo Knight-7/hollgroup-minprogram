@@ -11,14 +11,33 @@ Page({
   },
   textareaAInput(e) {
     this.setData({
-      textareaAValue: e.detail.value
+      textinput: e.detail.value
+    })
+  },
+  //弹出对话框
+  showModal:function(e){
+    this.setData({
+      modalName: "Modal"
+    })
+  },
+  //隐藏对话框
+  hideModal(e) {
+    this.setData({
+      modalName: null
     })
   },
   //按钮事件
   finish:function(e){
+    let that = this;
+    if(that.data.textinput=='')
+    {
+      this.showModal();
+      return false;
+    }
     //成功发布提示消息
     wx.showToast({
-      title: '修改成功',
+      
+      title: '提交成功',
       duration: 3000,
     })
     setTimeout(function(){

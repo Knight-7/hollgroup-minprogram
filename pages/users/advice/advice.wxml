@@ -9,6 +9,20 @@
   <!--按钮-->
 <view class="bg-white padding solid">
   <view class="flex solid-bottom padding justify-center">
-    <view class="basis-sm cu-btn bg-cyan round lg shadow" bindtap="finish">提交成功</view>
+    <view class="basis-sm cu-btn bg-cyan round lg shadow" bindtap="finish">提交建议</view>
   </view>
 </view>  
+<!--提示窗口-->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      有信息未填写
+    </view>
+  </view>
+</view>
