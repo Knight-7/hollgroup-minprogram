@@ -31,6 +31,16 @@ Component({
     otherOrder: []
   },
   methods:{
+    loadModal:function(){
+      this.setData({
+        loadModal: true
+      })
+      setTimeout(()=> {
+        this.setData({
+          loadModal: false
+        })
+      }, 1000)
+    },
     fresh(type) {
       let that = this;
       
@@ -118,6 +128,7 @@ Component({
     // 组件生命周期函数，在组件实例进入页面节点树时执行。相当于page的onload
     // 简单来说就是tabbar切换的时候调用它
     attached:function(){
+      this.loadModal();
       this.fresh(0);
     }
   },
@@ -125,6 +136,7 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> Show');
+      this.loadModal();
       this.fresh(this.data.TabCur);
     },
   }

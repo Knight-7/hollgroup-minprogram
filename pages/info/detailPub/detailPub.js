@@ -76,10 +76,25 @@ Page({
   },
   //按钮事件
   finishstop:function(e){
-    //成功发布提示消息
-    wx.showToast({
-      title: '订单已中止',
-      duration: 3000,
+    wx.request({
+      url: app.globalData.baseUrl + '/order/cancel',
+      data: {
+        'orderId': this.data.orderId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res)=> {
+        console.log(res.data)
+        //成功发布提示消息
+        wx.showToast({
+          title: '订单已终止',
+          duration: 3000,
+        })
+      },
+      failL: function() {
+        console.log('终止失败')
+      }
     })
     setTimeout(function(){
       //返回上一页
@@ -90,10 +105,25 @@ Page({
   },
   //按钮事件
   finishyes:function(e){
-    //成功发布提示消息
-    wx.showToast({
-      title: '操作成功',
-      duration: 3000,
+    wx.request({
+      url: app.globalData.baseUrl + '/order/finish',
+      data: {
+        'orderId': this.data.orderId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res)=> {
+        console.log(res.data)
+        //成功发布提示消息
+        wx.showToast({
+          title: '操作成功',
+          duration: 3000,
+        })
+      },
+      failL: function() {
+        console.log('完成失败')
+      }
     })
     setTimeout(function(){
       //返回上一页

@@ -35,6 +35,16 @@ Component({
   },
   //其中切换选项栏的TABBAR应该要加上刷新函数
   methods:{
+    loadModal:function(){
+      this.setData({
+        loadModal: true
+      })
+      setTimeout(()=> {
+        this.setData({
+          loadModal: false
+        })
+      }, 1000)
+    },
     fresh: function() {
       let that = this;
       wx.request({
@@ -85,6 +95,7 @@ Component({
       })
       //刷新数据函数
       console.log("请在methods的tabSelect函数里加上刷新数据的函数")
+      this.fresh();
     },
     // 页面跳转到发布的订单页面
     jumpPub(e){
@@ -126,6 +137,7 @@ Component({
     attached:function(){
       console.log('Component-1 >> attached');
       console.log("info home页面初始化啦！");
+      this.loadModal();
       this.fresh();
     }
   },
@@ -133,6 +145,7 @@ Component({
     // detail返回时会调用的的地方
     show:function(){
       console.log('Component-1 pageLifetimes >> info home  Show');
+      this.loadModal();
     },
   }
 })
