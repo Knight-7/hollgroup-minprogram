@@ -6,8 +6,8 @@ Page({
    */
   data: {
     QueryBean:"",
-    title:"测试用标题",
-    detai:"假装这里有份商品说明吧！",
+    title:"",
+    detai:"",
     // 存放图片的列表
     imgList:["https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1679286314,1857044548&fm=26&gp=0.jpg"
   ],

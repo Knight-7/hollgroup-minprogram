@@ -7,7 +7,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom text-center">
     <view class="solid-bottom text-lg padding">
-      测试用标题{{title}}
+      {{title}}
     </view>
   </view>
 </view>

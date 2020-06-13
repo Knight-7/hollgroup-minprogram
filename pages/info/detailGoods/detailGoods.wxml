@@ -7,7 +7,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom text-center">
     <view class="solid-bottom text-lg padding">
-      测试用标题{{title}}
+      {{title}}
     </view>
   </view>
 </view>
@@ -22,7 +22,7 @@
 <view class="bg-white padding">
   <view class="grid col-1 margin-bottom">
     <view class="solid-bottom text-df padding">
-      测试用商品详情{{detai}}
+      {{detai}}
     </view>
   </view>
 </view>
@@ -50,13 +50,7 @@
   </view>
   <text class="text-black">{{phone}}</text>
 </view>
-<!--地点方式-->
-<view class="cu-form-group" wx:if="{{cometype!=1}}">
-	<view class="title">
-    <text class="cuIcon-locationfill lg">订单地址</text>
-  </view>
-  <text class="text-black">{{location}}</text>
-</view>
+
 <!--按钮-->
 <view class="bg-white padding">
   <view class="flex solid-bottom padding justify-between">
