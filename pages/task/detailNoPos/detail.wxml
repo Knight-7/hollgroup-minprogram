@@ -43,18 +43,5 @@
   </view>
   <text class="text-black">{{phone}}</text>
 </view>
-<!--按钮-->
-<view class="bg-white padding">
-  <view class="flex solid-bottom padding justify-between" wx:if="{{isfav}}">
-    <view class="basis-sm cu-btn bg-blue round lg shadow">            
-      <view >取消订单</view>
-    </view>
-    <view class="basis-sm cu-btn bg-cyan round lg shadow">接收订单</view>
-  </view>
-  <view wx:else>
-    <view class="flex solid-bottom padding justify-center">
-      <view class="basis-sm cu-btn bg-cyan round lg shadow" bindtap="finish">接受订单</view>
-    </view>
-  </view>
-</view>  
+
 
